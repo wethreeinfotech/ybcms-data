@@ -5,7 +5,7 @@
 	font-stretch: PERCENTAGE_RANGE_LOW_TO_HIGH;
 	font-style: normal;
 	font-weight: 100 1000;
-	src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf) format(woff2);
+	src: url(../fonts/Roboto-VariableFont_wdth,wght.ttf) format('truetype');
 	font-display: swap;
 }
 
@@ -14,7 +14,7 @@
 	font-stretch: PERCENTAGE_RANGE_LOW_TO_HIGH;
 	font-style: normal;
 	font-weight: 100 1000;
-	src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf) format(woff2);
+	src: url(../fonts/Roboto-VariableFont_wdth,wght.ttf) format('truetype');
 	font-display: swap;
 }
 
@@ -659,7 +659,7 @@ button {
 	right: 2px;
 	font-family: Roboto-var, Arial Narrow, Arial, sans-serif;
 	padding: 0;
-	// inset: inherit !important;
+	inset: inherit !important;
 }
 
 .du-header .login-open ul.loginemnu li.login:before {
@@ -3660,7 +3660,7 @@ ul.sub-bullet-list-dot li:not(:last-child) {
 	color: #595A5C;
 }
 
-.article-blog-post ul ol li: not(:last-child) {
+.article-blog-post ul ol li:not(:last-child) {
 	margin-bottom: 10px;
 }
 
