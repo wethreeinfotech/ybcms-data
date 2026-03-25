@@ -1,0 +1,342 @@
+{#
+/**
+ * @file
+ * page--client-stories.html.twig
+ *
+ * Dedicated page layout for the /client-stories route path!
+ * It renders the Client Stories page natively via Twig.
+ */
+#}
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+<main class="du-main-section">
+  <div class="l3-banner-blue-bg container-fluid">
+    <div class="container-xl pt-4">
+      <nav class="custom-breadcrumb mb-4 d-none" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="{{ url('<front>') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Client Stories</li>
+        </ol>
+      </nav>
+      <div class="article-banner-section text-white my-5">
+        <div class="thin-heading animate__animated animate__slideInLeft">Our happy </div>
+        <div class="bold-heading animate__animated animate__slideInRight">Client stories</div>
+        <div class="desc-text animate__animated animate__zoomIn d-none">--</div>
+      </div>
+    </div>
+    
+    <div class="container-xl mb-4">
+      <div class="card floating-card-base">
+        <div class="row g-0 row-cols-1 row-cols-sm-2 row-cols-md-4 card-with-divider">
+          <div class="col info-card">
+            <div>
+              <div class="info-card-heading">480 Million+</div>
+              <div class="info-card-text"><small>Customers across the globe</small></div>
+            </div>
+          </div>
+          <div class="col info-card">
+            <div>
+              <div class="info-card-heading">Only Indian Bank</div>
+              <div class="info-card-text"><small>In Fortune 500 companies</small></div>
+            </div>
+          </div>
+          <div class="col info-card">
+            <div>
+              <div class="info-card-heading">Iconic</div>
+              <div class="info-card-text"><small>Banking brand awarded in 2023</small></div>
+            </div>
+          </div>
+          <div class="col info-card">
+            <div>
+              <div class="info-card-heading">1.2 Bn+</div>
+              <div class="info-card-text"><small>Annual Transactions</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-xl" style="margin-top: 80px;">
+    <div id="landing-revamp-navtab" class="title mt-4">
+      <div class="postlogin-main-base">
+        <div class="fs-nav-container" style="position: relative; display: flex; align-items: center;">
+          <button aria-label="left" class="nav-scroll left" style="display: none; position: absolute; left: -20px; z-index: 2; background: #fff; border: 1px solid #ddd; border-radius: 50%; width: 32px; height: 32px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; align-items: center; justify-content: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+          </button>
+          
+          <div tabindex="-1" class="fs-nav" style="overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="fs-nav-inner d-flex flex-nowrap" style="white-space: nowrap; gap: 10px;">
+              <a href="javascript:void(0)" tabindex="-1" aria-label="All" class="filter-btn active-nav" data-filter="*">
+                <div tabindex="0">All Stories</div>
+              </a>
+              {% if testimonial_categories|length > 0 %}
+                {% for term in testimonial_categories %}
+                  <a href="javascript:void(0)" tabindex="-1" aria-label="{{ term.name.value }}" class="filter-btn dashed-border" data-filter=".cat-{{ term.id }}">
+                    <div tabindex="0">{{ term.name.value }}</div>
+                  </a>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <button aria-label="right" class="nav-scroll right" style="display: flex; position: absolute; right: -20px; z-index: 2; background: #fff; border: 1px solid #ddd; border-radius: 50%; width: 32px; height: 32px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; align-items: center; justify-content: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-xl mt-4">
+    <div class="card-columns-masonry" id="caReviewCards" style="position: relative;">
+      
+      {% if client_stories|length > 0 %}
+        {% for story in client_stories %}
+          <div class="card masonry-card {% for category in story.field_testimonial_categories %}cat-{{ category.entity.id }} {% endfor %}">
+            <div class="card-body">
+              <div class="d-flex justify-content-start align-items-center mb-4">
+                <div class="masonry-auther-img {{ story.field_profile_image.entity.uri.value ? 'with-profile-img' : 'with-profile-img-BK' }}">
+                  {% if story.field_profile_image.entity.uri.value %}
+                    <img src="{{ file_url(story.field_profile_image.entity.uri.value) }}" class="img-fluid" alt="Profile">
+                  {% else %}
+                    {{ story.title.value|slice(0, 2)|upper }}
+                  {% endif %}
+                </div>
+                <div class="ms-3">
+                  <p class="masonry-auther-heading mb-0">{{ story.title.value }}</p>
+                  <p class="masonry-auther-role mb-0">
+                    {{ story.field_designation_role.value }}
+                    {% if story.field_designation_role.value and story.field_department.value %}, {% endif %}
+                    {{ story.field_department.value }}
+                    {% if story.field_department.value and story.field_company.value %}, {% endif %}
+                    {{ story.field_company.value }}
+                  </p>
+                </div>
+              </div>
+              <p class="card-text mb-4">{{ story.field_testimonial_description.value|striptags }}</p>
+              
+              {# Render all attached category tags #}
+              <div class="mb-2">
+                {% for category in story.field_testimonial_categories %}
+                  <span class="masonry-badge">{{ category.entity.name.value|default('Client Story') }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {# Fallback layout if no Drupal Nodes #}
+        <div class="card masonry-card">
+           <div class="card-body">
+              <div class="d-flex justify-content-start align-items-center mb-4">
+                 <div class="masonry-auther-img with-profile-img">
+                    <img src="{{ base_path ~ directory }}/images/client-stories/rajiv-mehta.png" class="img-fluid" alt="Client">
+                 </div>
+                 <div class="ms-3">
+                    <p class="masonry-auther-heading mb-0">Rajiv Mehta</p>
+                    <p class="masonry-auther-role mb-0">CFO, Zenith Automotives</p>
+                 </div>
+              </div>
+              <p class="card-text mb-4">SBI Corporate Banking has been instrumental in streamlining our financial operations. Highly recommend their services to any growing enterprise!</p>
+              <div class="mb-2">
+                 <span class="masonry-badge">Cash Management</span>
+                 <span class="masonry-badge">e-Forex</span>        
+              </div>
+           </div>
+        </div>
+      {% endif %}
+
+    </div>
+    
+    {# Show More / Less Controls #}
+    <div class="d-flex align-items-center justify-content-center p-5">
+      <button class="button secondary button_medium" data-load-more>
+        <div class="inner_button_margin d-flex justify-content-between">
+          <span class="content">Load More</span>
+        </div>
+      </button>
+      <button class="button secondary button_medium" style="display: none;" data-show-less>
+        <div class="inner_button_margin d-flex justify-content-between">
+          <span class="content">Show Less</span>
+        </div>
+      </button>
+    </div>
+    
+    {# Customer Reviews specific bottom grid #}
+    <div class="container-xl pb-4 headersection">
+      <div class="row g-0">
+        <div class="col-sm-12 col-md-10 col-lg-10 text-start color-black">
+          <div class="main-section-heading01">Customer</div>
+          <div class="main-section-heading02">Reviews</div>
+          <div class="main-section-desc d-none">--</div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2"></div>
+      </div>
+    </div>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card review-card-base h-100">
+          <div class="position-relative">
+            <img src="{{ base_path ~ directory }}/images/client-stories/customer-review-01.png" class="card-img-top rounded-4" alt="Review">    
+            <div class="card-img-overlay p-0">
+              <a href="javascript:void(0);" class="cutomer-review-btn">
+                <span class="m-auto"><img src="{{ base_path ~ directory }}/images/client-stories/review-play.svg" class="img-fluid" alt="play"></span>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">“The dedicated relationship manager ensures we get prompt support, making complex transactions seamless...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card review-card-base h-100">
+          <div class="position-relative">
+            <img src="{{ base_path ~ directory }}/images/client-stories/customer-review-02.png" class="card-img-top rounded-4" alt="Review">    
+            <div class="card-img-overlay p-0">
+              <a href="javascript:void(0);" class="cutomer-review-btn">
+                <span class="m-auto"><img src="{{ base_path ~ directory }}/images/client-stories/review-play.svg" class="img-fluid" alt="play"></span>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">“SBI Corporate Banking has been instrumental in streamlining our financial operations. The dedicated...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card review-card-base h-100">
+          <div class="position-relative">
+            <img src="{{ base_path ~ directory }}/images/client-stories/customer-review-03.png" class="card-img-top rounded-4" alt="Review">    
+            <div class="card-img-overlay p-0">
+              <a href="javascript:void(0);" class="cutomer-review-btn">
+                <span class="m-auto"><img src="{{ base_path ~ directory }}/images/client-stories/review-play.svg" class="img-fluid" alt="play"></span>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+             <p class="card-text">“Their robust digital banking solutions have drastically reduced our processing times and improved efficiency...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="d-flex align-items-center justify-content-center p-5">
+      <button class="button d-block secondary button_medium">
+        <div class="inner_button_margin d-flex justify-content-between">
+          <span class="content">Load More</span>
+        </div>
+      </button>
+    </div>
+  </div>
+  {# Include the exact Carousel logic as rendered on Homepage, using our dynamic variable #}
+  {% include directory ~ '/templates/layout/sbi-assistance.html.twig' %}
+</main>
+
+{% include directory ~ '/templates/layout/footer.html.twig' %}
+
+<script src="{{ base_path ~ directory }}/js/masonry.pkgd.min.js"></script>
+<script>
+  // Initializer specific to Client Stories Page Layout interactions
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Horizontal Nav Tab Scroll
+    var $nav = jQuery('.fs-nav');
+    if($nav.length) {
+      function checkButtons(){
+        var scrollLeft = $nav.scrollLeft();
+        var maxScroll = $nav[0].scrollWidth - $nav.outerWidth();
+        jQuery('.nav-scroll.left').toggle(scrollLeft > 0);
+        jQuery('.nav-scroll.right').toggle(scrollLeft < maxScroll);
+      }
+      
+      jQuery('.nav-scroll.right').click(function(){
+        $nav.animate({ scrollLeft : "+=200" }, 400, checkButtons);
+      });
+      jQuery('.nav-scroll.left').click(function(){
+        $nav.animate({ scrollLeft : "-=200" }, 400, checkButtons);
+      });
+      $nav.on('scroll', checkButtons);
+      checkButtons();
+
+      jQuery('.fs-nav-inner a').on('click', function(){
+        jQuery('.fs-nav-inner a').removeClass('active-nav').addClass('dashed-border');
+        jQuery(this).removeClass('dashed-border').addClass('active-nav');
+      });
+    }
+
+    // 2. Custom Load More / Show Less Logic
+    var cardsToShow = 6;
+    var cardsToLoad = 3;
+    var $grid = jQuery('#caReviewCards');
+    var $cards = $grid.find('.masonry-card');
+    var $loadMoreBtn = jQuery('[data-load-more]');
+    var $showLessBtn = jQuery('[data-show-less]');
+    
+    // Initial display
+    function updateDisplay(animate) {
+      if ($cards.length <= cardsToShow) {
+        $loadMoreBtn.hide();
+        $showLessBtn.hide();
+      } else {
+        $loadMoreBtn.show();
+      }
+      $cards.hide();
+      $cards.slice(0, cardsToShow).show();
+    }
+    
+    // Only run if there are cards
+    if ($cards.length > 0) {
+      updateDisplay();
+      
+      $loadMoreBtn.on('click', function(e) {
+        e.preventDefault();
+        var currentlyShown = $cards.filter(':visible').length;
+        var newTotal = currentlyShown + cardsToLoad;
+        
+        $cards.slice(currentlyShown, newTotal).fadeIn();
+        
+        if (newTotal >= $cards.length) {
+          $loadMoreBtn.hide();
+          $showLessBtn.show();
+        }
+      });
+      
+      $showLessBtn.on('click', function(e) {
+        e.preventDefault();
+        var currentlyShown = $cards.filter(':visible').length;
+        var newTotal = Math.max(cardsToShow, currentlyShown - cardsToLoad);
+        
+        $cards.slice(newTotal).fadeOut(400, function() {
+          if (newTotal <= cardsToShow) {
+            $showLessBtn.hide();
+            $loadMoreBtn.show();
+          } else {
+            $loadMoreBtn.show(); // Always show load more if we went down a step.
+          }
+        });
+      });
+      
+      // Update logic when filtering occurs so correct count is displayed
+      jQuery('.fs-nav-inner a').on('click', function(){
+        var filterVal = jQuery(this).attr('data-filter');
+        if (filterVal === '*') {
+          $cards = $grid.find('.masonry-card');
+        } else {
+          $cards = $grid.find('.masonry-card' + filterVal);
+          // Hide all others specifically
+          $grid.find('.masonry-card').not('.masonry-card' + filterVal).hide();
+        }
+        
+        // Reset Show Less/Load More buttons to initial state for new filter
+        $showLessBtn.hide();
+        updateDisplay();
+      });
+    }
+  });
+</script>

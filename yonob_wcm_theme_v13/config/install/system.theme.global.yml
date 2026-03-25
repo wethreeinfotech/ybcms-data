@@ -1,0 +1,9 @@
+# This file is intentionally empty.
+#
+# The system.theme.global config (logo/favicon paths) already exists in
+# Drupal's active configuration, so we do NOT ship it in config/install/
+# (which would cause an "already exists" error on theme enable).
+#
+# To set a custom logo/favicon, go to:
+#   /admin/appearance → "Settings" for YonoB WCM Theme
+# and upload your logo.svg and favicon.ico from the images/ directory.

@@ -1,0 +1,173 @@
+{# ============================================================ Client Stories Carousel ===== #}
+<div id="client-stories-carousel">
+  <div class="container-xl">
+    <div class="container-xl pb-4 headersection">
+      <div class="row g-0">
+        <div class="col-sm-12 col-md-10 col-lg-10 text-start color-black">
+          <div class="main-section-heading01">{{ 'Here are'|t }}</div>
+          <div class="main-section-heading02">{{ 'Latest Client Stories'|t }}</div>
+          <div class="main-section-desc">{{ 'Hear it from the people who matter most - Our Clients'|t }}</div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+          <div class="w-100 h-100 d-flex justify-content-lg-end justify-content-md-end justify-content-sm-center align-items-end">
+            <a href="{{ url('<front>') }}client-stories" class="header-hypelink">{{ 'View All'|t }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-xl mt-5">
+      <div id="carousel-client-stories" class="carousel tmonial-carousel margin-top-65 slide">
+        <div class="carousel-inner">
+          <div role="tablist" class="carousel-indicators">
+            {% if client_stories|length > 0 %}
+              {% for story in client_stories %}
+                <button type="button" data-bs-target="#carousel-client-stories" data-bs-slide-to="{{ loop.index0 }}"
+                        role="tab" class="{{ loop.first ? 'active' : '' }}" aria-labelledby="slide {{ loop.index }}"
+                        aria-controls="Slide {{ loop.index }}" aria-selected="{{ loop.first ? 'true' : 'false' }}"></button>
+              {% endfor %}
+            {% else %}
+              <button type="button" data-bs-target="#carousel-client-stories" data-bs-slide-to="0"
+                      role="tab" class="active" aria-labelledby="slide 1"
+                      aria-controls="Slide 1" aria-selected="false"></button>
+              <button type="button" data-bs-target="#carousel-client-stories" data-bs-slide-to="1"
+                      role="tab" aria-labelledby="Slide 2"
+                      aria-controls="Slide 2" aria-selected="true"></button>
+            {% endif %}
+          </div>
+
+          {% if client_stories|length > 0 %}
+            {% for index, story in client_stories %}
+              <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+                <div class="tmonial-container d-flex align-items-center">
+                  <div class="row g-0">
+                    <div class="col-12 col-lg-6 col-xl-6 order-2 order-lg-1 tmonial-caption-base">
+                      <div class="d-flex justify-content-center align-items-center h-100">
+                        <div class="">
+                          <p class="tmonial-lead-caption">{{ story.field_testimonial_categories.entity.name.value|default('Client Story') }}</p>
+                          {# Only title output logic matched static design structure. #}
+                          <p class="tmonial-text">{{ story.field_testimonial_description.value|striptags }}</p>
+                          <hr class="divider-dotted-line">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="tmonial-auther-img {{ story.field_profile_image.entity.uri.value ? 'with-profile-img' : '' }}">
+                              {% if story.field_profile_image.entity.uri.value %}
+                                <img src="{{ file_url(story.field_profile_image.entity.uri.value) }}" class="img-fluid" alt="Profile">
+                              {% else %}
+                                {{ story.title.value|slice(0, 2)|upper }}
+                              {% endif %}
+                            </div>
+                            <div class="ms-3">
+                              <p class="tmonial-auther-heading mb-0">{{ story.title.value }}</p>
+                              <p class="tmonial-auther-role mb-0">{{ story.field_designation_role.value }}{% if story.field_designation_role.value and story.field_department.value %}, {% endif %}{{ story.field_department.value }}{% if story.field_department.value and story.field_company.value %}, {% endif %}{{ story.field_company.value }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-6 order-1 order-lg-2 tmonial-banner-base">
+                      <div class="tmonial-banner-img">
+                        <a href="javascript:void(0);" class="tmonial-playicon-base" style="{{ story.field_thumbnail_type.value != 'video' ? 'pointer-events: none;' : '' }}">
+                          {% if story.field_thumbnail_type.value|lower == 'video' %}
+                            <span class="tmonial-playicon-img">
+                              <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/banner-play.svg" class="img-fluid" alt="{{ 'Play icon'|t }}">
+                            </span>
+                          {% endif %}
+                          
+                          {% if story.field_thumbnail.entity %}
+                            <img src="{{ file_url(story.field_thumbnail.entity.uri.value) }}" class="img-fluid w-100" alt="Thumbnail">
+                          {% else %}
+                            <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/client-stories-default.png" class="img-fluid w-100" alt="Default banner" onerror="this.style.display='none'">
+                          {% endif %}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {# Static Fallback Slide 1 #}
+            <div class="carousel-item active">
+              <div class="tmonial-container d-flex align-items-center">
+                <div class="row g-0">
+                  <div class="col-12 col-lg-6 col-xl-6 order-2 order-lg-1 tmonial-caption-base">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <div class="">
+                        <p class="tmonial-lead-caption">{{ 'Proprietor'|t }}</p>
+                        <p class="tmonial-lead-title">{{ 'For these business leaders, impact and legacy go hand in hand'|t }}</p>
+                        <p class="tmonial-text">{{ 'In the competitive landscape, these industry leaders turned challenges into opportunities with innovative solutions. Their commitment to impact and legacy reflects a journey of resilience and transformation.'|t }}</p>
+                        <hr class="divider-dotted-line">
+                        <div class="d-flex justify-content-start align-items-center">
+                          <div class="tmonial-auther-img">MK</div>
+                          <div class="ms-3">
+                            <p class="tmonial-auther-heading mb-0">{{ 'Mayur Khandelwal'|t }}</p>
+                            <p class="tmonial-auther-role mb-0">{{ 'Owner, Khandelwal &amp; Sons'|t }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-xl-6 order-1 order-lg-2 tmonial-banner-base">
+                    <div class="tmonial-banner-img">
+                      <a href="javascript:void(0);" class="tmonial-playicon-base">
+                        <span class="tmonial-playicon-img">
+                          <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/banner-play.svg"
+                               class="img-fluid" alt="{{ 'Play icon'|t }}">
+                        </span>
+                        <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/client-stories-02.png"
+                             class="img-fluid" alt="{{ 'client-stories-02 image'|t }}">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            {# Static Fallback Slide 2 #}
+            <div class="carousel-item">
+              <div class="tmonial-container d-flex align-items-center">
+                <div class="row g-0">
+                  <div class="col-12 col-lg-6 col-xl-6 tmonial-caption-base">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <div class="">
+                        <p class="tmonial-text">{{ "We are extremely satisfied with SBI's eTrade and yono Business platforms. They offer convenient, secure, and efficient solutions for our daily banking and trade requirements. SBI's digital interface is seamless, reliable, and user-friendly, making transactions faster and more transparent. We truly appreciate SBI's continuous innovation in digital banking for businesses."|t }}</p>
+                        <hr class="divider-dotted-line">
+                        <div class="d-flex justify-content-start align-items-center">
+                          <div class="tmonial-auther-img with-profile-img">
+                            <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/client-profile-01.png"
+                                 class="img-fluid" alt="{{ 'client-profile-01 image'|t }}">
+                          </div>
+                          <div class="ms-3">
+                            <p class="tmonial-auther-heading mb-0">{{ 'Mr. Senthilkumar P.'|t }}</p>
+                            <p class="tmonial-auther-role mb-0">{{ 'VP, Finance, URC Construction Private Limited'|t }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-xl-6 tmonial-banner-base">
+                    <img src="{{ base_path ~ directory }}/images/client-stories/carousel-banner/client-stories-01.png"
+                         class="img-fluid tmonial-banner-img" alt="{{ 'client-stories-01 image'|t }}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>{# /.carousel-inner #}
+
+        <div class="row justify-content-center d-flex">
+          <button type="button" class="btn btn-sm btn-default m-r carousel-control-prev"
+                  data-bs-target="#carousel-client-stories" data-bs-slide="prev">
+            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">{{ 'Previous'|t }}</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-default carousel-control-next"
+                  data-bs-target="#carousel-client-stories" data-bs-slide="next">
+            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">{{ 'Next'|t }}</span>
+          </button>
+        </div>
+      </div>{# /#carousel-client-stories #}
+    </div>
+  </div>
+</div>{# /#client-stories-carousel #}

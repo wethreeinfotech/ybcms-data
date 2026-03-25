@@ -1,0 +1,110 @@
+{# ============================================================ SBI Current Account Section ===== #}
+<div id="sbi-current-account">
+<div class="card border-0 ca-main-base mb-lg-5">
+   <img class="card-img-top img-fluid h-100 ca-main-base-image" src="{{ base_path ~ directory }}/images/current-account-bg.png" alt="Card image">
+   <div class="card-img-overlay container-xl">
+      <div class="row align-items-md-stretch signup-section">
+         <div class="col-lg-7 col-xl-6">
+            <div class="h-100 py-lg-5 px-0">
+               <div class="text-white mb-5">
+                  <!--
+                     <div class="thin-heading">{{ 'Find the Right Current Account'|t }}</div>
+                     <div class="bold-heading">{{ 'for Your Business'|t }}</div>
+                     <div class="desc-text animate_animated animate_zoomIn">{{ 'Answer a few questions and we’ll find the right account for your business'|t }}</div>
+                     <div class="desc-text animate_animated animate_zoomIn">{{ 'OR reach out to us at'|t }} <span>1800 1234</span><span>1800 2100</span></div>
+                     -->
+                  <div class="main-section-heading01 animate_animated animate_slideInLeft">{{ 'Find the Right Current Account'|t }}</div>
+                  <div class="main-section-heading02 mb-3 animate_animated animate_slideInRight">{{ 'for Your Business'|t }}</div>
+                  <div class="main-section-desc animate_animated animate_zoomIn">{{ 'Answer a few questions and we’ll find the right account for your business'|t }}</div>
+                  <div class="main-section-desc animate_animated animate_zoomIn">{{ 'OR reach out to us at'|t }} <span class="num-txt">1800 1234 <span class="kh-divider-ver my-3"></span> 1800 2100</span></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-5 col-xl-6">
+            <div class="h-100 rounded-3">
+               <div class="position-relative">
+                  <form class="signup-form form-check-radio">
+                     <div id="content1" class="content-section">
+                        <p class="px-4 py-4 pb-2">Question 1 of 4</p>
+                        <p class="px-4 py-4 pt-2 qus-txt">{{ 'What do you need a business account for?'|t }}</p>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question1" id="question1id1" value="question1_opt1">
+                           <label class="form-check-label align-self-center" for="question1id1">
+                           {{ 'I want to easily manage my day-to-day business banking'|t }}
+                           </label>
+                        </div>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question1" id="question1id2" value="question1_opt2" checked="">
+                           <label class="form-check-label align-self-center" for="question1id2">
+                           {{ 'I want to save for the future by earning interest on excess business funds'|t }}
+                           </label>
+                        </div>
+                        <div class="col-12 py-4 text-end pe-5">
+                           <button data-target="content2" type="submit" class="btn common-btn toggle-btn">{{ 'Next'|t }}</button>
+                        </div>
+                     </div>
+                     <div id="content2" class="content-section">
+                        <p class="px-4 py-4 pb-2">Question 2 of 4</p>
+                        <p class="px-4 py-4 pt-2 qus-txt">{{ 'What do you need a business account for?'|t }}</p>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question2" id="question2id1" value="question2_opt1">
+                           <label class="form-check-label align-self-center" for="question2id1">
+                           {{ 'I want to easily manage my day-to-day business banking'|t }}
+                           </label>
+                        </div>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question2" id="question2id2" value="question2_opt2" checked="">
+                           <label class="form-check-label align-self-center" for="question2id2">
+                           {{ 'I want to save for the future by earning interest on excess business funds'|t }}
+                           </label>
+                        </div>
+                        <div class="col-12 py-4 text-end pe-5">
+                           <button data-target="content3" type="submit" class="btn common-btn toggle-btn">{{ 'Next'|t }}</button>
+                        </div>
+                     </div>
+                     <div id="content3" class="content-section">
+                        <p class="px-4 py-4 pb-2">Question 3 of 4</p>
+                        <p class="px-4 py-4 pt-2 qus-txt">{{ 'What do you need a business account for?'|t }}</p>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question3" id="question3id1" value="question3_opt1">
+                           <label class="form-check-label align-self-center" for="question3id1">
+                           {{ 'I want to easily manage my day-to-day business banking'|t }}
+                           </label>
+                        </div>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question3" id="question3id2" value="question3_opt2" checked="">
+                           <label class="form-check-label align-self-center" for="question3id2">
+                           {{ 'I want to save for the future by earning interest on excess business funds'|t }}
+                           </label>
+                        </div>
+                        <div class="col-12 py-4 text-end pe-5">
+                           <button data-target="content4" type="submit" class="btn common-btn toggle-btn">{{ 'Submit'|t }}</button>
+                        </div>
+                     </div>
+                     <div id="content4" class="content-section">
+                        <p class="px-4 py-4 pb-2">Question 4 of 4</p>
+                        <p class="px-4 py-4 pt-2 qus-txt">{{ 'What do you need a business account for?'|t }}</p>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question4" id="question4id1" value="question3_opt1">
+                           <label class="form-check-label align-self-center" for="question4id1">
+                           {{ 'I want to easily manage my day-to-day business banking'|t }}
+                           </label>
+                        </div>
+                        <div class="form-check m-4 d-flex">
+                           <input class="form-check-input me-3" type="radio" name="question4" id="question4id2" value="question3_opt2" checked="">
+                           <label class="form-check-label align-self-center" for="question4id2">
+                           {{ 'I want to save for the future by earning interest on excess business funds'|t }}
+                           </label>
+                        </div>
+                        <div class="col-12 py-4 text-end pe-5">
+                           <button data-target="content1" type="submit" class="btn common-btn toggle-btn">{{ 'Submit'|t }}</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>

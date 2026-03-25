@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * page--front.html.twig
+ *
+ * Homepage-specific content template.
+ * Renders the "Client Stories" testimonial carousel and the
+ * "Knowledge Hub" Owl Carousel, taken directly from index.html
+ * and converted to Twig.
+ *
+ * Available variables (standard node variables):
+ *  - node       : The full node entity.
+ *  - content    : All field output ready for print.
+ *  - label      : Title of the node.
+ *  - url        : Direct URL of the node.
+ *  - attributes : HTML attributes for the <article> wrapper.
+ */
+#}
+{# ── Header Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+<main class="du-main-section">
+
+{# ── Fixed Quick Links Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/fixed-quick-links.html.twig' %}
+
+{# ── Fixed QR Code Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/fixed-qr-code.html.twig' %}
+
+{# ── Banner Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/banner.html.twig' %}
+
+{# ── Fin Solutions Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/fin-solutions.html.twig' %}
+
+{# ── SBI Current Account Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/sbi-current-account.html.twig' %}
+
+{# ── Joint Venture Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/joint-venture.html.twig' %}
+
+{# ── SBI Home Video Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/sbi-home-video.html.twig' %}
+
+{# ── Client Stories Carousel Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/client-stories-carousel.html.twig' %}
+
+
+{# ── Knowledge Hub Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/knowledge-hub-carousel.html.twig' %}
+
+{# ── SBI Assistance Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/sbi-assistance.html.twig' %}
+
+{# ── FAQ Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/faq-main.html.twig' %}
+
+{# ── SBI Contact Us Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/sbi-contact-us.html.twig' %}
+
+{# ── Fixed Back2Top Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/fixed-back2top.html.twig' %}
+
+{# ── Drupal field content (body, custom fields, etc.) ─────────────── #}
+{{ page.content }}
+
+</main>{# /.du-main-section #}
+
+{# ── Footer Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/footer.html.twig' %}

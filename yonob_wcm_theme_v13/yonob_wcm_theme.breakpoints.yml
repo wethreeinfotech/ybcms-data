@@ -1,0 +1,41 @@
+yonob_wcm_theme.xs:
+  label: 'Extra Small (< 576px)'
+  mediaQuery: '(max-width: 575.98px)'
+  weight: 0
+  multipliers:
+    - 1x
+
+yonob_wcm_theme.sm:
+  label: 'Small (≥ 576px)'
+  mediaQuery: '(min-width: 576px)'
+  weight: 1
+  multipliers:
+    - 1x
+
+yonob_wcm_theme.md:
+  label: 'Medium (≥ 768px)'
+  mediaQuery: '(min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+
+yonob_wcm_theme.lg:
+  label: 'Large (≥ 992px)'
+  mediaQuery: '(min-width: 992px)'
+  weight: 3
+  multipliers:
+    - 1x
+
+yonob_wcm_theme.xl:
+  label: 'Extra Large (≥ 1200px)'
+  mediaQuery: '(min-width: 1200px)'
+  weight: 4
+  multipliers:
+    - 1x
+
+yonob_wcm_theme.xxl:
+  label: 'Extra Extra Large (≥ 1400px)'
+  mediaQuery: '(min-width: 1400px)'
+  weight: 5
+  multipliers:
+    - 1x

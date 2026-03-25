@@ -1,0 +1,15 @@
+{# ============================================================ Fixed QR Code Section ===== #}
+<div id="fixed-qr-code">
+  <div class="floating_QR">
+    <div class="Scan_img float-start"><span class="lg-QR-section"><img loading="lazy" src="{{ base_path ~ directory }}/images/scroller/floating_QR.png" alt="{{ 'QR Code image'|t }}" class="lg-QR"></span><span class="sm-QR-section"><a href="#" data-bs-toggle="modal" data-bs-target="#qrCodeModal"><img loading="lazy" src="{{ base_path ~ directory }}/images/scroller/floating_QR_sm.png" alt="{{ 'QR Code Icon'|t }}" width="15" class="sm-QR d-none"></a></span></div>
+    <div class="Scan_text float-start scan-QR"> {{ 'Scan Code'|t }}<br> {{ 'to Download App'|t }} </div>
+  </div>
+  
+  <div id="qrCodeModal" tabindex="-1" aria-labelledby="qrCodeModalLabel" class="modal modal-sm fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 205px;">
+      <div class="modal-content">
+        <div class="modal-body text-center"><img loading="lazy" src="{{ base_path ~ directory }}/images/scroller/floating_QR.png" alt="{{ 'QR Code image'|t }}"></div>
+      </div>
+    </div>
+  </div>
+</div>

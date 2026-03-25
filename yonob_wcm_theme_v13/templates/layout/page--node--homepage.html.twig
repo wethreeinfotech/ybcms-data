@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * page--node--homepage.html.twig
+ *
+ * Page-level template for nodes of type "homepage".
+ * Renders the full header + footer inline (same structure as page.html.twig)
+ * but forces full-width main content — no sidebars.
+ *
+ * NOTE: Drupal page templates cannot use {% extends %}. This is a fully
+ * standalone template. Header/footer HTML is included via Twig include.
+ */
+#}
+
+{# Include the main page layout — header, nav, content, footer #}
+{% include directory ~ '/templates/layout/page.html.twig' %}

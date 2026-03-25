@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * page.html.twig
+ *
+ * YonoB WCM Theme – full page layout.
+ *
+ * Regions available:
+ *  - page.header         : Header (can be printed inside header.html.twig)
+ *  - page.primary_menu   : main navigation region (printed inside header.html.twig)
+ *  - page.content        : main page content
+ *  - page.sidebar        : Sidebar region
+ *  - page.footer         : Footer region
+ */
+#}
+
+{# ============================================================ HEADER ===== #}
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+{# ============================================================ MAIN ======= #}
+<article class="du-main-section">
+  <div id="fixed-quick-links"></div>
+  <div id="fixed-qr-code"></div>
+  <main id="main-content" class="main-content" role="main" tabindex="-1">
+    {% if page.sidebar %}
+      <div class="container py-4">
+        <div class="row gx-4">
+          <div class="col-lg-9">{{ page.content }}</div>
+          <aside class="col-lg-3" role="complementary">{{ page.sidebar }}</aside>
+        </div>
+      </div>
+    {% else %}
+      {{ page.content }}
+    {% endif %}
+  </main>
+</article>
+
+{# ============================================================ FOOTER ===== #}
+{% include directory ~ '/templates/layout/footer.html.twig' %}

@@ -1,0 +1,148 @@
+{#
+/**
+ * @file
+ * node--article--full.html.twig
+ *
+ * Article node displayed in full (full) view mode.
+ *
+ * Available variables (standard Drupal node variables):
+ * - node: The node entity.
+ * - label: The node title.
+ * - content: All rendered node fields.
+ * - author_name: The author name.
+ * - author_picture: The author's picture.
+ * - display_submitted: Whether submitted info should be displayed.
+ * - metadata: Metadata rendered by layouts.
+ * - url: The node URL.
+ * - is_preview: TRUE when viewing a draft/unpublished node.
+ * - date: Formatted creation date (UNIX timestamp if using |format_date).
+ * - created: Raw creation timestamp.
+ * - attributes: HTML attributes for the <article> tag.
+ * - title_attributes: HTML attributes for the <h1> tag.
+ * - content_attributes: HTML attributes for the content div.
+ * - author_attributes: HTML attributes for the author element.
+ */
+#}
+
+<article{{ attributes.addClass('node--article node--article--full') }}>
+
+  {# ---- Preview Banner ---- #}
+  {% if is_preview %}
+    <div class="alert alert-warning rounded-0 text-center mb-0 py-2">
+      <strong>{{ 'Preview Mode'|t }}</strong> —
+      {{ 'This article has not been published yet.'|t }}
+    </div>
+  {% endif %}
+
+  {# ---- Article Header ---- #}
+  <header class="article-header bg-light border-bottom py-5 mb-5">
+    <div class="container">
+      {# Breadcrumb #}
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="{{ path('<front>') }}">{{ 'Home'|t }}</a></li>
+          <li class="breadcrumb-item"><a href="/blog">{{ 'Blog'|t }}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
+        </ol>
+      </nav>
+
+      {# Category badge #}
+      {% if content.field_category is defined %}
+        <div class="mb-3">{{ content.field_category }}</div>
+      {% endif %}
+
+      {# Title #}
+      <h1{{ title_attributes.addClass('article-title display-5 fw-bold mb-4') }}>
+        {{ label }}
+      </h1>
+
+      {# Meta info #}
+      {% if display_submitted %}
+        <div class="article-meta d-flex flex-wrap align-items-center gap-3 text-muted">
+          {% if author_picture %}
+            <div class="author-avatar">{{ author_picture }}</div>
+          {% endif %}
+          <div>
+            <span class="fw-semibold text-dark">{{ author_name }}</span>
+            <span class="mx-1">·</span>
+            <time datetime="{{ created|date('Y-m-d') }}"
+                  class="text-muted">
+              {{ created|date('F j, Y') }}
+            </time>
+          </div>
+          {% if content.field_read_time is defined %}
+            <span class="badge bg-light text-dark border">{{ content.field_read_time }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {# ---- Featured Image ---- #}
+  {% if content.field_image is defined %}
+    <div class="article-featured-image mb-5">
+      <div class="container">
+        {{ content.field_image }}
+      </div>
+    </div>
+  {% endif %}
+
+  {# ---- Main Content ---- #}
+  <div{{ content_attributes.addClass('container article-body') }}>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        {# Body text #}
+        {% if content.body is defined %}
+          <div class="article-body-text mb-5">
+            {{ content.body }}
+          </div>
+        {% endif %}
+
+        {# Tags #}
+        {% if content.field_tags is defined %}
+          <div class="article-tags mb-5">
+            <strong class="me-2">{{ 'Tags:'|t }}</strong>
+            {{ content.field_tags }}
+          </div>
+        {% endif %}
+
+        {# Share bar #}
+        <div class="article-share border-top border-bottom py-4 my-5 d-flex align-items-center gap-3 flex-wrap">
+          <span class="fw-semibold">{{ 'Share:'|t }}</span>
+          <a href="https://twitter.com/intent/tweet?url={{ url|url_encode }}&text={{ label|url_encode }}"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-sm btn-outline-secondary">Twitter / X</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url|url_encode }}"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-sm btn-outline-secondary">LinkedIn</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ url|url_encode }}"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-sm btn-outline-secondary">Facebook</a>
+        </div>
+
+        {# Author bio #}
+        {% if display_submitted %}
+          <div class="author-bio card border-0 bg-light rounded-3 p-4 mb-5">
+            <div class="d-flex gap-3 align-items-center">
+              {% if author_picture %}
+                <div class="author-bio-avatar flex-shrink-0">{{ author_picture }}</div>
+              {% endif %}
+              <div>
+                <h4 class="h6 fw-bold mb-1">{{ 'About'|t }} {{ author_name }}</h4>
+                <p class="text-muted small mb-0">
+                  {{ 'Content contributor at YonoB WCM.'|t }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {# Comments / extra fields #}
+        {{ content|without('body', 'field_image', 'field_tags', 'field_category', 'field_read_time') }}
+
+      </div>
+    </div>
+  </div>
+
+</article>

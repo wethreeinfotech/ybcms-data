@@ -1,0 +1,374 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the YonoB WCM Theme.
+ *
+ * @package yonob_wcm_theme
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Extension\ExtensionPathResolver;
+
+
+// ---------------------------------------------------------------------------
+// hook_preprocess_html()
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Adds useful body classes for node type, front page, and preview state.
+ */
+function yonob_wcm_theme_preprocess_html(array &$variables): void {
+  $variables['attributes']['class'][] = 'yonob-wcm';
+
+  /** @var \Drupal\node\NodeInterface|null $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node instanceof NodeInterface) {
+    $variables['attributes']['class'][] = 'page-node-type--' . $node->bundle();
+
+    if (!$node->isPublished()) {
+      $variables['attributes']['class'][] = 'node--unpublished';
+    }
+  }
+
+  // Path-based class.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $alias        = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $alias_class  = preg_replace('/[^a-z0-9]+/i', '-', ltrim($alias, '/'));
+  if ($alias_class) {
+    $variables['attributes']['class'][] = 'path--' . $alias_class;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// hook_preprocess_page()
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Passes site-wide config variables to all page templates and conditionally
+ * attaches heavy libraries (Chart.js) only when required.
+ */
+function yonob_wcm_theme_preprocess_page(array &$variables): void {
+  $site_config = \Drupal::config('system.site');
+
+  $variables['site_name']   = $site_config->get('name');
+  $variables['site_slogan'] = $site_config->get('slogan');
+  $variables['is_front']    = \Drupal::service('path.matcher')->isFrontPage();
+
+  /** @var \Drupal\node\NodeInterface|null $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  $theme_path = \Drupal::service('extension.path.resolver')->getPath('theme', $theme);
+
+  $variables['#attached']['drupalSettings']['path']['themeUrl'] = base_path() . $theme_path;
+
+  if ($node instanceof NodeInterface) {
+    // Attach Chart.js only on homepage nodes.
+    if ($node->bundle() === 'homepage') {
+      $variables['#attached']['library'][] = 'yonob_wcm_theme/chart';
+    }
+  }
+
+  // Fetch Testimonials for the dynamic Client Stories.
+  $variables['client_stories'] = [];
+  try {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $query = $storage->getQuery()
+      ->condition('type', 'testimonials')
+      ->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->accessCheck(FALSE);
+
+    // Only limit to 3 if we are on the front page.
+    if ($variables['is_front'] || $node && $node->bundle() === 'homepage') {
+      $query->range(0, 3);
+    }
+
+    $nids = $query->execute();
+    if (!empty($nids)) {
+      $variables['client_stories'] = $storage->loadMultiple($nids);
+    }
+  } catch (\Exception $e) {
+    // If 'testimonials' is not the exact machine name, ignore gracefully for now.
+  }
+
+  // Fetch Testimonial Categories taxonomy terms.
+  $variables['testimonial_categories'] = [];
+  try {
+    $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $query = $term_storage->getQuery()
+      ->condition('vid', 'testimonial_categories')
+      ->sort('weight')
+      ->accessCheck(FALSE);
+    $tids = $query->execute();
+    if (!empty($tids)) {
+      $variables['testimonial_categories'] = $term_storage->loadMultiple($tids);
+    }
+  } catch (\Exception $e) {
+    // Ignore if vocabulary doesn't exist yet.
+  }
+
+  // Fetch Knowledge Hub items for the dynamic Knowledge Hub Carousel.
+  $variables['knowledge_hub_items'] = [];
+  try {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $query = $storage->getQuery()
+      ->condition('type', 'knowledge_hub')
+      ->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->accessCheck(FALSE);
+
+    // Only limit to 9 (slider limit) if we are on the front page or homepage node
+    $current_path = \Drupal::service('path.current')->getPath();
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if ($alias !== '/knowledge-hub') {
+      $query->range(0, 9);
+    }
+
+    $nids = $query->execute();
+    if (!empty($nids)) {
+      $variables['knowledge_hub_items'] = $storage->loadMultiple($nids);
+    }
+  } catch (\Exception $e) {
+    // Ignore gracefully if it doesn't exist yet.
+  }
+
+  // Fetch Knowledge Hub Categories taxonomy terms.
+  $variables['knowledge_hub_categories'] = [];
+  try {
+    $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $query = $term_storage->getQuery()
+      ->condition('vid', 'knowledge_hub_categories')
+      ->sort('weight')
+      ->accessCheck(FALSE);
+    $tids = $query->execute();
+    if (!empty($tids)) {
+      $variables['knowledge_hub_categories'] = $term_storage->loadMultiple($tids);
+    }
+  } catch (\Exception $e) {
+    // Ignore if vocabulary doesn't exist yet.
+  }
+
+  // --- KNOWLEDGE HUB NODE / PREVIEW DETAILS DATA ---
+  $current_node = \Drupal::routeMatch()->getParameter('node');
+  if (!$current_node) {
+    $current_node = \Drupal::routeMatch()->getParameter('node_preview');
+  }
+
+  if ($current_node instanceof \Drupal\node\NodeInterface && $current_node->bundle() === 'knowledge_hub') {
+    $variables['current_node'] = $current_node;
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+
+    // Fetch Latest Articles (Skip current node)
+    $variables['latest_articles'] = [];
+    try {
+      $query = $storage->getQuery()
+        ->condition('type', 'knowledge_hub')
+        ->condition('status', 1)
+        ->sort('created', 'DESC')
+        ->range(0, 3)
+        ->accessCheck(FALSE);
+      if ($current_node->id()) {
+        $query->condition('nid', $current_node->id(), '<>');
+      }
+      $nids = $query->execute();
+      if (!empty($nids)) {
+        $variables['latest_articles'] = $storage->loadMultiple($nids);
+      }
+    } catch (\Exception $e) {}
+
+    // Fetch Related Articles based on current node categories
+    $variables['related_articles'] = [];
+    try {
+      if (!$current_node->get('field_knowledge_hub_category')->isEmpty()) {
+        $cat_ids = array_column($current_node->get('field_knowledge_hub_category')->getValue(), 'target_id');
+        $query = $storage->getQuery()
+          ->condition('type', 'knowledge_hub')
+          ->condition('status', 1)
+          ->condition('field_knowledge_hub_category', $cat_ids, 'IN')
+          ->sort('created', 'DESC')
+          ->range(0, 3)
+          ->accessCheck(FALSE);
+        if ($current_node->id()) {
+          $query->condition('nid', $current_node->id(), '<>');
+        }
+        $nids = $query->execute();
+        if (!empty($nids)) {
+          $variables['related_articles'] = $storage->loadMultiple($nids);
+        }
+      }
+    } catch (\Exception $e) {}
+  }
+}
+
+// ---------------------------------------------------------------------------
+// hook_preprocess_node()
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * - Exposes `is_preview` flag so Twig templates can render a preview banner.
+ * - Attaches Owl Carousel library for carousel-heavy content types.
+ */
+function yonob_wcm_theme_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  // TRUE when viewing an unpublished node (draft / preview).
+  $variables['is_preview'] = !$node->isPublished();
+
+  // Attach owl-carousel for homepage and landing-page node types.
+  $carousel_bundles = ['homepage', 'landing_page', 'testimonials', 'knowledge_hub'];
+  if (in_array($node->bundle(), $carousel_bundles, TRUE)) {
+    $variables['#attached']['library'][] = 'yonob_wcm_theme/owl-carousel';
+  }
+
+  // Inject client_stories to the testimonial node preview wrapper.
+  if ($node->bundle() === 'testimonials') {
+    $client_stories = [];
+    $client_stories[] = $node; // Current node (even if unpublished/previewed).
+
+    try {
+      $storage = \Drupal::entityTypeManager()->getStorage('node');
+      $query = $storage->getQuery()
+        ->condition('type', 'testimonials')
+        ->condition('status', 1);
+
+      if ($node->id()) {
+        $query->condition('nid', $node->id(), '<>');
+      }
+
+      $query->sort('created', 'DESC')
+        ->range(0, 2)
+        ->accessCheck(FALSE);
+
+      $nids = $query->execute();
+      if (!empty($nids)) {
+        foreach ($storage->loadMultiple($nids) as $other) {
+          $client_stories[] = $other;
+        }
+      }
+    } catch (\Exception $e) {}
+
+    $variables['client_stories'] = $client_stories;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Template Suggestions
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ *
+ * Adds page--node--TYPE and page--front suggestions.
+ */
+function yonob_wcm_theme_theme_suggestions_page_alter(array &$suggestions, array $variables): void {
+  /** @var \Drupal\node\NodeInterface|null $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node instanceof NodeInterface) {
+    $suggestions[] = 'page__node__' . $node->bundle();
+  } elseif ($node_preview = \Drupal::routeMatch()->getParameter('node_preview')) {
+    if ($node_preview instanceof \Drupal\node\NodeInterface) {
+      $suggestions[] = 'page__node__' . $node_preview->bundle();
+    }
+  }
+
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $suggestions[] = 'page__front';
+  }
+
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name === 'user.login') {
+    $suggestions[] = 'page__user__login';
+  }
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if ($alias && $alias !== $current_path) {
+    $alias_class = preg_replace('/[^a-z0-9]+/i', '_', ltrim($alias, '/'));
+    $suggestions[] = 'page__' . $alias_class;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ *
+ * Adds node--TYPE--VIEW_MODE suggestion for granular template overrides.
+ */
+function yonob_wcm_theme_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node      = $variables['elements']['#node'];
+  $view_mode = $variables['elements']['#view_mode'];
+
+  $suggestions[] = 'node__' . $node->bundle() . '__' . $view_mode;
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ *
+ * Adds block--BLOCK_ID suggestion so individual blocks can have own templates.
+ */
+function yonob_wcm_theme_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
+  if (!empty($variables['elements']['#id'])) {
+    $suggestions[] = 'block__' . str_replace('-', '_', $variables['elements']['#id']);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_menu_alter().
+ *
+ * Adds menu--REGION suggestion for region-specific menu overrides.
+ */
+function yonob_wcm_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
+  if (!empty($variables['attributes']['block_id'])) {
+    $suggestions[] = 'menu__' . str_replace('-', '_', $variables['attributes']['block_id']);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Form Alterations
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Applies Bootstrap 5 classes to common Drupal forms.
+ */
+function yonob_wcm_theme_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  // Search block form.
+  if ($form_id === 'search_block_form') {
+    $form['keys']['#attributes']['class'][]       = 'form-control';
+    $form['keys']['#attributes']['placeholder']   = t('Search…');
+    $form['actions']['submit']['#attributes']['class'][] = 'btn btn-primary';
+  }
+
+  // Node add / edit forms — add Bootstrap wrapper class.
+  if (str_starts_with($form_id, 'node_') && str_ends_with($form_id, '_form')) {
+    $form['#attributes']['class'][] = 'yonob-node-form';
+  }
+}
+
+// ---------------------------------------------------------------------------
+// hook_preprocess_block()
+// ---------------------------------------------------------------------------
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * Passes block plugin ID to templates for conditional rendering.
+ */
+function yonob_wcm_theme_preprocess_block(array &$variables): void {
+  $variables['plugin_id'] = $variables['elements']['#plugin_id'];
+}

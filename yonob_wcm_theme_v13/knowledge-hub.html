@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>yono Business</title>
+    <meta name="description"
+        content="An integrated banking solution which can be accessed across devices, allowing you to plan, manage, grow & address corporate financial needs">
+    <meta name="keywords" content="banking, netbanking, online banking, corporate banking" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-5.3.3.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/dataTables.bootstrap5.css" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle-5.3.3.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/yb-pre-login.css" />
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap5.js"></script>
+    <script src="js/chart-3.7.1/chart.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/jquery-ui-1.14.js"></script>
+    <script src="js/yb-pre-login.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+
+            /* Card Filter functions starts here */
+            $('#articles-card-filter').filterCardsByTab({
+                itemsSelector: '.card',
+                tabSelector: '.category-list-btn',
+                cardTxtSelector: '.category-btn',
+                cardsToShow: 3
+            });
+            /* Card Filter functions ends here */
+        });
+    </script>
+</head>
+
+<body>
+    <article class="drupal-main">
+        <div id="header" class="du-header"></div>
+        <main class="du-main-section">
+            <div class="l3-banner-blue container-fluid d-none">
+                <div class="container-xl p-4">
+                    <nav class="custom-breadcrumb mb-4" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Knowledge Hub</li>
+                        </ol>
+                    </nav>
+                    <div class="article-banner-section text-white mb-5">
+                        <div class="thin-heading animate_animated animate_slideInLeft">Stay Informed with </div>
+                        <div class="bold-heading animate_animated animate_slideInRight">SBI Insights</div>
+                        <div class="desc-text animate_animated animate_zoomIn d-none">--</div>
+                    </div>
+                    <div class="search-box-base">
+                        <div class="search-box">
+                            <div class="input-group input-group-lg shadow-lg">
+                                <input type="text" class="form-control border-0" id="search-int-box"
+                                    placeholder="Search your query. Example - Digital Signature"
+                                    aria-label="Search your query. Example - Digital Signature"
+                                    aria-describedby="search-btn">
+                                <button class="btn btn-outline-secondary bg-white border-0" type="button"
+                                    id="search-btn"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="l3-banner-blue-bg container-fluid">
+                <div class="container-xl pt-4">
+                    <nav class="custom-breadcrumb mb-4 d-none" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Knowledge Hub</li>
+                        </ol>
+                    </nav>
+                    <div class="article-banner-section text-white my-5">
+                        <div class="thin-heading animate_animated animate_slideInLeft">Stay Informed with </div>
+                        <div class="bold-heading animate_animated animate_slideInRight">SBI Insights</div>
+                        <div class="desc-text animate_animated animate_zoomIn d-none">--</div>
+                    </div>
+                </div>
+                <div class="container-xl mb-4">
+                    <div class="floating-card-base">
+                        <div class="search-box-base">
+                            <div class="search-box">
+                                <div class="input-group input-group-lg shadow-lg">
+                                    <input type="text" class="form-control border-0" id="search-int-box"
+                                        placeholder="Search your query. Example - Digital Signature"
+                                        aria-label="Search your query. Example - Digital Signature"
+                                        aria-describedby="search-btn">
+                                    <button class="btn btn-outline-secondary bg-white border-0" type="button"
+                                        id="search-btn"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="container-xl mt-5">
+                <a href="khub-sbi-insights-all-articles.html" class="previous-btn mb-3">
+                    <svg class="svg-icon-20" role="img" viewBox="0 0 20 20">
+                        <use xlink:href="images/arrow-left-20.svg"> </use>
+                    </svg>
+                    <span>Back</span>
+                </a>
+                <h1 class="top-title px-2">Here are</h1>
+                <h2 class="main-title px-2">All Articles</h2>
+                <div class="container-xl mb-4">
+                    <div id="articles-card-filter">
+                        <div class="d-inline-block mb-3">
+                            <h3 class="small-title my-3">Categories:</h3>
+                            <button class="btn category-list-btn active" data-filter="all" type="button">All</button>
+                            <button class="btn category-list-btn" type="button" data-filter="SBI Research Desk">SBI
+                                Research Desk</button>
+                            <button class="btn category-list-btn" type="button" data-filter="category2">Category
+                                2</button>
+                            <button class="btn category-list-btn" type="button" data-filter="category3">Category
+                                3</button>
+                            <button class="btn category-list-btn" type="button" data-filter="category4">Category
+                                4</button>
+                            <button class="btn category-list-btn" type="button" data-filter="category5">Category
+                                5</button>
+                            <button class="btn category-list-btn" type="button" data-filter="filter">Category 6</button>
+                            <button class="btn category-list-btn" type="button" data-filter="filter">Category 7</button>
+                        </div>
+                        <div id="article-content">
+                            <div class="card h-100 p-4">
+                                <img src="images/knowledge-hub/india-uk-fta.png" class="card-img-top article-img"
+                                    alt="article_sample">
+                                <div class="card-body px-0 pb-0">
+                                    <div class="d-flex mb-3">
+                                        <div class="me-auto py-2"><button type="button"
+                                                class="btn btn-primary btn-sm category-btn">SBI Research Desk</button>
+                                        </div>
+                                        <div class="py-2 view_txt"><img src="images/eye-open-black.svg" alt="eye icon">
+                                            20</div>
+                                    </div>
+                                    <h5 class="card-title">Q3 FY26 GDP could be more than 8.0%</h5>
+                                    <p class="article-date mb-0 py-2">Published on : 23 February 2026</p>
+                                    <div class="kh-divider my-3"></div>
+                                    <p class="card-text">Nowcasted Q3FY26 real GDP growth at 8.1%..However, given
+                                        significant methodological...</p>
+                                    <a href="khub-q3-fy26-gdp.html" class="card-link">Read More</a>
+                                </div>
+                            </div>
+
+                            <div class="card h-100 p-4">
+                                <img src="images/knowledge-hub/financial-literacy.png" class="card-img-top article-img"
+                                    alt="article_sample">
+                                <div class="card-body px-0 pb-0">
+                                    <div class="d-flex mb-3">
+                                        <div class="me-auto py-2"><button type="button"
+                                                class="btn btn-primary btn-sm category-btn">SBI Research
+                                                Desk---</button></div>
+                                        <div class="py-2 view_txt"><img src="images/eye-open-black.svg" alt="eye icon">
+                                            20</div>
+                                    </div>
+                                    <h5 class="card-title">LEANING INTO THE WIND:US SUPREME COURT SCRAPS US TARIFF</h5>
+                                    <p class="article-date mb-0 py-2">Published on : 21 February 2026</p>
+                                    <div class="kh-divider my-3"></div>
+                                    <p class="card-text">Unscrapping of the tariff structure by the Court(s) can upend
+                                        uncertainty going forward…</p>
+                                    <a href="khub-leanning-into-wind.html" class="card-link">Read More</a>
+                                </div>
+                            </div>
+
+
+                            <div class="card h-100 p-4">
+                                <img src="images/knowledge-hub/renewed-thrust.png" class="card-img-top article-img"
+                                    alt="article_sample">
+                                <div class="card-body px-0 pb-0">
+                                    <div class="d-flex mb-3">
+                                        <div class="me-auto py-2"><button type="button"
+                                                class="btn btn-primary btn-sm category-btn">SBI Research Desk</button>
+                                        </div>
+                                        <div class="py-2 view_txt"><img src="images/eye-open-black.svg" alt="eye icon">
+                                            20</div>
+                                    </div>
+                                    <h5 class="card-title">The puzzle of Currency in Circulation (CiC) at all time high
+                                        of...</h5>
+                                    <p class="article-date mb-0 py-2">Published on : 16 February 2026</p>
+                                    <div class="kh-divider my-3"></div>
+                                    <p class="card-text">Currency in circulation (CiC) in India has continued to rise,
+                                        reaching new, record-high...</p>
+                                    <a href="khub-puzzle-currency-circulation.html" class="card-link">Read More</a>
+                                </div>
+                            </div>
+
+
+                            <div class="card h-100 p-4">
+                                <img src="images/knowledge-hub/renewed-thrust.png" class="card-img-top article-img"
+                                    alt="article_sample">
+                                <div class="card-body px-0 pb-0">
+                                    <div class="d-flex mb-3">
+                                        <div class="me-auto py-2"><button type="button"
+                                                class="btn btn-primary btn-sm category-btn">Category 1</button></div>
+                                        <div class="py-2 view_txt"><img src="images/eye-open-black.svg" alt="eye icon">
+                                            20</div>
+                                    </div>
+                                    <h5 class="card-title">Renewed thrust to Urbanisation can be elixir for Net Zero
+                                        commitment... </h5>
+                                    <p class="article-date mb-0 py-2">Published on : 26 February 2025</p>
+                                    <div class="kh-divider my-3"></div>
+                                    <p class="card-text">The relationship between urbanisation and forest cover is U
+                                        shaped....</p>
+                                    <a href="khub-renewed-thrust.html" class="card-link">Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center p-5">
+                            <button class="button secondary button_medium" data-load-more>
+                                <div class="inner_button_margin d-flex justify-content-between">
+                                    <span class="content">Load More</span>
+                                </div>
+                            </button>
+                            <button class="button secondary button_medium" style="display: none;" data-show-less>
+                                <div class="inner_button_margin d-flex justify-content-between">
+                                    <span class="content">Show Less</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="footer" class="du-footer"></div>
+    </article>
+</body>
+
+</html>

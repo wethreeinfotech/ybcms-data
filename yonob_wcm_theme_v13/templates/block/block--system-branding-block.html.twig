@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * block--system-branding-block.html.twig
+ *
+ * Default theme override for the system branding block (logo + site name).
+ *
+ * Available variables:
+ * - site_logo: URL of the site logo image file.
+ * - site_name: Name of the site.
+ * - site_slogan: Slogan of the site.
+ * - content: Block plugin output using the block template.
+ * - attributes: HTML attributes for the <div> tag.
+ * - content_attributes: HTML attributes for content tag.
+ */
+#}
+
+<a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none"
+   href="{{ path('<front>') }}"
+   title="{{ 'Home'|t }}"
+   rel="home">
+
+  {% if site_logo %}
+    <img src="{{ site_logo }}"
+         alt="{{ site_name }}"
+         class="site-logo img-fluid"
+         width="160"
+         height="48"
+         loading="eager" />
+  {% endif %}
+
+  {% if site_name %}
+    <span class="site-name fw-bold text-dark d-none d-lg-inline-block">
+      {{ site_name }}
+    </span>
+  {% endif %}
+
+</a>
+
+{% if site_slogan %}
+  <p class="site-slogan visually-hidden">{{ site_slogan }}</p>
+{% endif %}

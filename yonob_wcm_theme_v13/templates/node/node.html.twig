@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * node.html.twig
+ *
+ * Generic node template — used as fallback for all content types
+ * that don't have a more specific template.
+ *
+ * Available variables (standard Drupal node variables):
+ *  - node        : Full node entity
+ *  - label       : Node title
+ *  - url         : Direct URL of the node
+ *  - content     : All fields, ready to print
+ *  - attributes  : HTML attributes for <article>
+ *  - is_preview  : TRUE when the node is unpublished (set in .theme)
+ *  - display_submitted : Whether to show author/date info
+ *  - author_picture    : Author avatar render array
+ *  - author_name       : Author display name
+ *  - created           : Node creation timestamp
+ */
+#}
+
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, view_mode ? 'node--view-mode-' ~ view_mode|clean_class : '') }}>
+
+  {# Preview / draft alert #}
+  {% if is_preview %}
+    <div class="alert alert-warning rounded-0 text-center mb-0 py-2">
+      <strong>{{ 'Draft Preview'|t }}</strong> — {{ 'This content is not yet published.'|t }}
+    </div>
+  {% endif %}
+
+  {# Node title — only on non-full-page views #}
+  {% if not page %}
+    <header class="node-header mb-3">
+      <h2{{ title_attributes.addClass('node__title h4') }}>
+        <a href="{{ url }}" rel="bookmark" class="text-decoration-none text-dark">
+          {{ label }}
+        </a>
+      </h2>
+    </header>
+  {% endif %}
+
+  {# Submitted-by meta #}
+  {% if display_submitted %}
+    <div class="node__meta text-muted small mb-3 d-flex align-items-center gap-2">
+      {% if author_picture %}
+        {{ author_picture }}
+      {% endif %}
+      <span class="node__submitted">
+        {{ 'Submitted by'|t }}
+        <span class="fw-semibold">{{ author_name }}</span>
+        {{ 'on'|t }}
+        <time datetime="{{ created|date('Y-m-d') }}">{{ created|date('F j, Y') }}</time>
+      </span>
+    </div>
+  {% endif %}
+
+  {# Main field content #}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content }}
+  </div>
+
+</article>

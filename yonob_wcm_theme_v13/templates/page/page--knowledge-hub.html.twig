@@ -1,0 +1,235 @@
+{#
+/**
+ * @file
+ * page--knowledge-hub.html.twig
+ *
+ * Dedicated page layout for the /knowledge-hub route script.
+ */
+#}
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+<main class="du-main-section">
+
+  <div class="l3-banner-blue-bg container-fluid">
+    <div class="container-xl pt-4">
+      <nav class="custom-breadcrumb mb-4 d-none" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="{{ url('<front>') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Knowledge Hub</li>
+        </ol>
+      </nav>
+      <div class="article-banner-section text-white my-5">
+        <div class="thin-heading animate_animated animate_slideInLeft">Stay Informed with </div>
+        <div class="bold-heading animate_animated animate_slideInRight">SBI Insights</div>
+        <div class="desc-text animate_animated animate_zoomIn d-none">--</div>
+      </div>
+    </div>
+    <div class="container-xl mb-4" style="display: none;">
+      <div class="floating-card-base">
+        <div class="search-box-base">
+          <div class="search-box">
+            <div class="input-group input-group-lg shadow-lg">
+              <input type="text" class="form-control border-0" id="search-int-box"
+                placeholder="Search your query. Example - Digital Signature"
+                aria-label="Search your query. Example - Digital Signature"
+                aria-describedby="search-btn">
+              <button class="btn btn-outline-secondary bg-white border-0" type="button" id="search-btn"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-xl mt-5">
+    <a href="{{ url('<front>') }}" class="previous-btn mb-3 d-inline-flex align-items-center text-decoration-none">
+      <img src="{{ base_path ~ directory }}/images/arrow-left-20.svg" alt="Back" class="me-2" style="width: 10px; height: 16px;">
+      <span>Back</span>
+    </a>
+    <h1 class="top-title px-2">Here are</h1>
+    <h2 class="main-title px-2">All Articles</h2>
+    
+    <div class="container-xl mb-4">
+      <div id="articles-card-filter">
+        
+        {# Dynamic Categories Hook #}
+        <div class="d-inline-block mb-3 fs-nav-inner">
+          <h3 class="small-title my-3">Categories:</h3>
+          <button class="btn category-list-btn active" data-filter="*" type="button">All</button>
+          {% for term in knowledge_hub_categories %}
+            <button class="btn category-list-btn" type="button" data-filter=".cat-{{ term.id }}">{{ term.name.value }}</button>
+          {% endfor %}
+        </div>
+        
+        <style>
+          /* Override the broken masonry columns with a strict CSS Grid */
+          #article-content {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 1.5rem !important;
+            columns: auto !important;
+            column-count: auto !important;
+          }
+          @media (max-width: 991px) {
+            #article-content {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (max-width: 767px) {
+            #article-content {
+              grid-template-columns: 1fr !important;
+            }
+          }
+          
+          /* Ensures fading objects don't lose width or misalign */
+          #article-content .filter-card {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            break-inside: auto !important;
+          }
+
+          .custom-kh-card {
+            border: none;
+            box-shadow: 0px 3px 8px 4px #0000000D;
+            border-radius: 1rem;
+          }
+          .custom-kh-card .card-title,
+          .custom-kh-card .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+          }
+          .custom-kh-card .card-text {
+            min-height: 48px;
+          }
+        </style>
+
+        <div id="article-content" class="mt-3">
+          {# Output Dynamic Knowledge Hub Items #}
+          {% if knowledge_hub_items|length > 0 %}
+            {% for item in knowledge_hub_items %}
+              <div class="card h-100 p-4 custom-kh-card filter-card {% for category in item.field_knowledge_hub_category %}cat-{{ category.entity.id }} {% endfor %}">
+                <img src="{{ item.field_thumbnail_image.entity.uri.value ? file_url(item.field_thumbnail_image.entity.uri.value) : base_path ~ directory ~ '/images/knowledge-hub/renewed-thrust.png' }}" 
+                     class="card-img-top article-img rounded-3" alt="{{ item.title.value }}">
+                <div class="card-body px-0 pb-0">
+                  <div class="d-flex mb-3">
+                    <div class="me-auto py-2">
+                       <button type="button" class="btn btn-primary btn-sm category-btn">
+                         {{ item.field_knowledge_hub_category.entity.name.value|default('Category') }}
+                       </button>
+                    </div>
+                    <div style="display: none;" class="py-2 view_txt"><img src="{{ base_path ~ directory }}/images/eye-open-black.svg" alt="eye icon"> {{ item.field_view_count.value|default('0') }}</div>
+                  </div>
+                  <h5 class="card-title">{{ item.title.value }}</h5>
+                  <p class="article-date mb-0 py-2">Published on : {{ item.field_published_on.value|date('d F Y') }}</p>
+                  <div class="kh-divider my-3"></div>
+                  <p class="card-text">{{ item.field_short_description.value|striptags }}</p>
+                  <a href="{{ path('entity.node.canonical', {'node': item.id()}) }}" class="card-link">Read More</a>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {# Fallback / Empty state #}
+            <div style="grid-column: 1 / -1;"><p>No articles found.</p></div>
+          {% endif %}
+        </div>
+        
+        {# Load More / Show Less Controls #}
+        <div class="d-flex align-items-center justify-content-center p-5">
+            <button class="button secondary button_medium" data-load-more>
+                <div class="inner_button_margin d-flex justify-content-between">
+                    <span class="content">Load More</span>
+                </div>
+            </button>
+            <button class="button secondary button_medium" style="display: none;" data-show-less>
+                <div class="inner_button_margin d-flex justify-content-between">
+                    <span class="content">Show Less</span>
+                </div>
+            </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include directory ~ '/templates/layout/footer.html.twig' %}
+
+<script>
+  // Initializer specific to Knowledge Hub layout
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    // Custom Load More / Show Less Logic
+    var cardsToShow = 6;
+    var cardsToLoad = 3;
+    var $grid = jQuery('#article-content');
+    var $cards = $grid.find('.filter-card');
+    var $loadMoreBtn = jQuery('[data-load-more]');
+    var $showLessBtn = jQuery('[data-show-less]');
+    
+    // Initial display config
+    function updateDisplay() {
+      if ($cards.length <= cardsToShow) {
+        $loadMoreBtn.hide();
+        $showLessBtn.hide();
+      } else {
+        $loadMoreBtn.show();
+      }
+      $cards.hide();
+      $cards.slice(0, cardsToShow).show();
+    }
+    
+    if ($cards.length > 0) {
+      updateDisplay();
+      
+      $loadMoreBtn.on('click', function(e) {
+        e.preventDefault();
+        var currentlyShown = $cards.filter(':visible').length;
+        var newTotal = currentlyShown + cardsToLoad;
+        
+        $cards.slice(currentlyShown, newTotal).fadeIn();
+        
+        if (newTotal >= $cards.length) {
+          $loadMoreBtn.hide();
+          $showLessBtn.show();
+        }
+      });
+      
+      $showLessBtn.on('click', function(e) {
+        e.preventDefault();
+        var currentlyShown = $cards.filter(':visible').length;
+        var newTotal = Math.max(cardsToShow, currentlyShown - cardsToLoad);
+        
+        $cards.slice(newTotal).fadeOut(400, function() {
+          if (newTotal <= cardsToShow) {
+            $showLessBtn.hide();
+            $loadMoreBtn.show();
+          } else {
+            $loadMoreBtn.show(); // keep load more visible if in middle
+          }
+        });
+      });
+      
+      // Update logic when filtering occurs via tabs
+      jQuery('.category-list-btn').on('click', function(){
+        jQuery('.category-list-btn').removeClass('active');
+        jQuery(this).addClass('active');
+        
+        var filterVal = jQuery(this).attr('data-filter');
+        if (filterVal === '*') {
+          $cards = $grid.find('.filter-card');
+        } else {
+          $cards = $grid.find('.filter-card' + filterVal);
+          // Hide non-matching
+          $grid.find('.filter-card').not('.filter-card' + filterVal).hide();
+        }
+        
+        $showLessBtn.hide();
+        updateDisplay();
+      });
+    }
+  });
+</script>

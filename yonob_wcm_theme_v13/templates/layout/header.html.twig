@@ -1,0 +1,1525 @@
+{# ============================================================ HEADER ===== #}
+<article class="drupal-main">
+<div id="header" class="du-header">
+  <div id="prelogin-sbihome">
+    <div class="container-fluid">
+      <header id="revamp_topHeader" class="top-header">
+
+        {# ── Global Bar ────────────────────────────────────────────── #}
+        <div class="globalbar">
+          <div class="container-xl">
+            <div class="row m-md-0 m-y-sm-1 ms-sm-0">
+
+              {# -- Accessibility / Language col -- #}
+              <div class="col-12 col-xs-12 col-sm-12 col-md-5 col-lg-4 ps-lg-3 p-md-0 ps-sm-0">
+                <div>
+                  <div class="skip float-end float-md-start float-lg-start" onclick="test()">
+                    <span class="d-none d-sm-block d-md-none d-lg-block">
+                      <a href="javascript:void(0)" tabindex="0">{{ 'Skip to main content'|t }}</a>
+                    </span>
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">{{ 'Action'|t }}</a></li>
+                    <li><a class="dropdown-item" href="#">{{ 'Another action'|t }}</a></li>
+                    <li><a class="dropdown-item" href="#">{{ 'Something else here'|t }}</a></li>
+                  </ul>
+                </div>
+
+                <div class="visibility float-start">
+                  <ul>
+                    <li><span><a tabindex="0" aria-label="{{ 'Reduce font size'|t }}" id="decreaseFont"> A- </a></span></li>
+                    <li><span><a tabindex="0" aria-label="{{ 'Default font size'|t }}" id="resetFont"> A </a></span></li>
+                    <li><span><a tabindex="0" aria-label="{{ 'Increase font size'|t }}" id="increaseFont"> A+ </a></span></li>
+                  </ul>
+                </div>
+
+                <div id="" class="contrast float-start" onclick="Contrast_theme();">
+                  <span><a tabindex="0" aria-label="{{ 'Change Contrast'|t }}" role="button"></a></span>
+                </div>
+
+                <div class="language float-start language-hide">
+                  <div class="d-inline-block dropdown">
+                    <span class="dropdown-toggle variant" aria-expanded="false">{{ 'English'|t }}</span>
+                    <div class="calc-open dropdown-menu">
+                      <ul>
+                        <li>{{ 'English'|t }}</li>
+                        <li>{{ 'Hindi'|t }}</li>
+                        <li>{{ 'Marathi'|t }}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>{# /.col – accessibility #}
+
+              {# -- SBI Connected (centre) -- #}
+              <div class="col-12 col-md-7 col-lg-4 d-none d-md-block text-center position-relative p-0">
+                <div tabindex="0" class="sbi-connected"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseDiv"
+                    aria-expanded="false"
+                    aria-controls="collapseDiv">{{ 'SBI Wealth, Insurance and more'|t }}</div>
+              </div>
+
+              <div class="collapse grow-your-wealth" id="collapseDiv">
+                <div class="container-xl">
+                  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://sbi.bank.in/web/wealth-management/"
+                        aria-label="Redirect to https://sbi.bank.in/web/wealth-management">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-wealth-gyw.png" alt="SBI Wealth" aria-description="SBI Wealth"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Explore a world of opportunities to meet your financial aspirations'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://www.sbigeneral.in/product/corporate"
+                        aria-label="Redirect to SBI General">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-general-gyw.png" alt="SBI General"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Simple and innovative solutions to build a sustainable business'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://corporate.sbimf.com"
+                        aria-label="Redirect to SBI Mutual Fund">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-mf-gyw.png" alt="SBI Mutual Fund"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Invest smartly, manage liquidity and fuel your business growth with mutual funds'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://www.sbisecurities.in/corporate-demat-account"
+                        aria-label="Redirect to SBI Securities">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-securities-gyw.png" alt="SBI Securities"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Achieve your financial goals and take your investments to new heights'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://www.sbilife.co.in/en/group-insurance/corporate-plans"
+                        aria-label="Redirect to SBI Life">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-life-gyw.png" alt="SBI Life"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Secure your future with a wide range of life insurance solutions'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://www.sbicard.com/en/corporate.page"
+                        aria-label="Redirect to SBI Card">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-card-gyw.png" alt="SBI Card"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Customized Cards for unique business needs'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" tabindex="0" class="grow-card p-1"
+                        href="https://customer.sbiunipay.sbi.bank.in/CustomerPortal/quickPay"
+                        aria-label="Redirect to SBI Unipay">
+                        <div class="w-100">
+                          <div class="grow-card-img"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/sbi-unipay-gyw.png" alt="SBI Unipay"></div>
+                          <div class="grow-card-divider mx-2 my-1"></div>
+                          <div class="grow-card-desc px-2 py-1 pb-3">{{ 'Single platform for making bill payments anytime anywhere'|t }}</div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col">
+                        <a target="_blank" tabindex="0" class="grow-card p-1 " href="https://cmp.sbi.bank.in/Emandates" aria-label="Redirect to https://cmp.sbi.bank.in/Emandates">
+                          <div class="w-100">
+                              <div class="grow-card-img">
+                                <strong class="">e-Mandate<br>(SBI FAST Plus)</strong><!----><!---->
+                              </div>
+                              <div class="grow-card-divider mx-2 my-1"></div>
+                              <div class="grow-card-desc px-2 py-1 pb-3"> Digital version of mandate-based collection in your centralized pooling account </div>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a target="_blank" tabindex="0" class="grow-card p-1 " href="https://emudra.sbi.bank.in:8044/emudra/basic-details" aria-label="Redirect to https://emudra.sbi.bank.in:8044/emudra/basic-details">
+                          <div class="w-100">
+                              <div class="grow-card-img">
+                                <strong class="">e-Mudra Loan</strong><!----><!---->
+                              </div>
+                              <div class="grow-card-divider mx-2 my-1"></div>
+                              <div class="grow-card-desc px-2 py-1 pb-3">  Loans for new entrepreneurs </div>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a target="_blank" tabindex="0" class="grow-card p-1 " href="https://www.sbiloansin59minutes.com/home" aria-label="Redirect to https://www.sbiloansin59minutes.com/home">
+                          <div class="w-100">
+                              <div class="grow-card-img">
+                                <strong class="">SME BRE Loan</strong><!----><!---->
+                              </div>
+                              <div class="grow-card-divider mx-2 my-1"></div>
+                              <div class="grow-card-desc px-2 py-1 pb-3"> Business loans to large as well as medium and small business </div>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a target="_blank" tabindex="0" class="grow-card p-1 " href="https://cmp.yonobusiness.sbi.bank.in/emandate/#/mandateRegistration" aria-label="Redirect to https://cmp.yonobusiness.sbi.bank.in/emandate/#/mandateRegistration">
+                          <div class="w-100">
+                              <div class="grow-card-img">
+                                <strong class="">e-Mandate<br>(SBI CMP NextGen)</strong><!----><!---->
+                              </div>
+                              <div class="grow-card-divider mx-2 my-1"></div>
+                              <div class="grow-card-desc px-2 py-1 pb-3"> Digital version of mandate-based collection in your centralized pooling account </div>
+                          </div>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {# -- Right utility links -- #}
+              <div class="col-12 col-md-4 col-lg-4 d-none d-lg-block p-0">
+                <div class="right-menu float-end">
+                  <div class="utility float-start">
+                    <div class="Support float-start"><span tabindex="0">{{ 'Support'|t }}</span></div>
+                    <div class="PersonalBanking float-start">
+                      <a tabindex="0" title="{{ 'Personal Banking'|t }}" target="_blank" skiplocationchange="true" href="https://retail.sbi.bank.in/">{{ 'Personal Banking'|t }}</a>
+                    </div>
+                    <div class="CorporateBanking float-start">
+                      <a tabindex="0" title="{{ 'Corporate Website'|t }}" target="_blank" skiplocationchange="true" href="https://sbi.bank.in/">{{ 'Corporate Website'|t }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>{# /.row #}
+          </div>{# /.container-xl #}
+        </div>{# /.globalbar #}
+
+        {# ── Main Header (Logo + CTA buttons) ──────────────────────── #}
+        <div class="Main-header">
+          <div class="Main-header_cta d-flex align-items-center">
+            <div class="container-xl">
+              <div class="row">
+                <div class="col-7">
+                  <a tabindex="0" href="{{ path('<front>') }}" title="{{ 'yono BUSINESS'|t }}" rel="external" class="md-margin-logo">
+                    <span class="Main-header_cta_logo">
+                      <img loading="lazy" alt="{{ 'Yono Business logo'|t }}" width="140px" height="38px"
+                          src="{{ base_path ~ directory }}/images/yono_logo.png">
+                    </span>
+                  </a>
+                </div>
+                <div class="col-5 d-flex justify-content-end">
+                  <div class="Main-header_cta_actionbuttons d-flex position-relative">
+
+                    {# Open Current Account dropdown #}
+                    <div class="d-md-inline-block d-xs-none d-sm-none d-none dropdown">
+                      <div class="dropdown">
+                        <button class="button prelogin secondary small d-block dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <div class="align-items-center button_inner d-flex justify-content-center">
+                            <div class="content">{{ 'Open Current Account'|t }}</div>
+                            <div class="arrow right"><img alt="" src="{{ base_path ~ directory }}/images/header/arrow-down-black.svg"></div>
+                          </div>
+                        </button>
+                        <div class="current_account dropdown-menu">
+                          <ul class="list-unstyled">
+                            <li><a class="dropdown-item" href="#" title="{{ 'Current Account'|t }}">{{ 'Current Account'|t }}</a></li>
+                            <li><a class="dropdown-item" href="#" title="{{ 'Current Account through Video KYC'|t }}">{{ 'Current Account through Video KYC'|t }}</a></li>
+                            <li class="external"><a class="dropdown-item" href="#" title="{{ 'MCA Current Account'|t }}">{{ 'MCA Current Account'|t }}</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {# Login / Logout #}
+                    {% if logged_in %}
+                      <div id="login-dropdown" class="d-inline-block ms-2">
+                         <a href="{{ path('user.logout') }}" class="button prelogin primary small d-block" style="text-decoration: none;">
+                          <div class="align-items-center button_inner d-flex justify-content-center">
+                            <div class="content" style="color: #fff;">{{ 'Logout'|t }}</div>
+                          </div>
+                        </a>
+                      </div>
+                    {% else %}
+                      <div id="login-dropdown" class="d-inline-block ms-2 dropdown">
+                        <div class="dropdown">
+                          <button class="button prelogin primary small d-block dropdown-toggle"
+                                  type="" id="skipcon_text"
+                                  data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
+                            <div class="align-items-center button_inner d-flex justify-content-center">
+                              <div class="content">{{ 'Login'|t }}</div>
+                              <div class="arrow right"><img alt="" src="{{ base_path ~ directory }}/images/header/arrow-down-white.svg"></div>
+                            </div>
+                          </button>
+                          <div class="login-open dropdown-menu dropdown-menu-end">
+                            <ul tabindex="-1" class="loginemnu">
+                              <li id="loginOfmenu" tabindex="0" class="dropdown-item login" title="{{ 'Login'|t }}" onclick="window.location.href='{{ path('user.login') }}'">{{ 'Login'|t }}</li>
+                              <li tabindex="0" class="dropdown-item newuser">{{ 'New User Activation'|t }}</li>
+                              <li tabindex="0" class="dropdown-item register">{{ 'New Customer Registration'|t }}</li>
+                              <li class="dropdown-item accounthelp" tabindex="0">
+                                <span class="L_spacing2">{{ 'ACCOUNT HELP'|t }}</span>
+                                <ul class="submenu">
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Lock User Access'|t }}</a></li>
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Unlock User Access'|t }}</a></li>
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Enable or Disable IP Address'|t }}</a></li>
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Register Mobile Number'|t }}</a></li>
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Set Password Post Approval'|t }}</a></li>
+                                  <li tabindex="0" class="list-group-item"><a href="javascript:void(0);" tabindex="-1">{{ 'Change State'|t }}</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>{# /.row #}
+            </div>{# /.container-xl #}
+          </div>{# /.Main-header_cta #}
+
+          {# ── Navigation Bar ──────────────────────────────────────── #}
+          <div class="Main-header_menu">
+            <div class="container-xl bg_mobile">
+              <nav class="navbar navbar-expand-lg p-0" role="navigation" aria-label="{{ 'Main navigation'|t }}">
+                <div class="container-fluid p-0">
+                  <button type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#navbar-content"
+                          aria-controls="navbar-content"
+                          aria-expanded="false"
+                          aria-label="{{ 'Toggle navigation'|t }}"
+                          class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div id="navbar-content" class="collapse navbar-collapse main_nav mobile-margin">
+
+                    {# Mobile: Open Current Account button #}
+                    <div class="d-block d-lg-none d-md-none my-3 dropdown">
+                      <button type="button" id="dropdownBasic1"
+                              class="dropdown-toggle hollowbutton CA_btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ 'Open Current Account'|t }}
+                      </button>
+                      <div class="current_account CA_dropdown dropdown-menu" data-bs-popper="static">
+                        <ul class="list-unstyled">
+                          <li><a target="_Blank" rel="noreferrer" title="{{ 'Current Account'|t }}" class="dropdown-item" href="https://corp.sbi.bank.in/oaorevamp/oaolanding.htm">{{ 'Current Account'|t }}</a></li>
+                          <li><a target="_Blank" title="{{ 'Current Account through Video KYC'|t }}" class="dropdown-item" href="https://corp.sbi.bank.in/vkyccao/vkycoaolanding.htm">{{ 'Current Account through Video KYC'|t }}</a></li>
+                          <li class="external"><a target="_Blank" title="{{ 'MCA Current Account'|t }}" class="dropdown-item" href="https://corp.sbi.bank.in/mcaoao/mcaaccopening.htm">{{ 'MCA Current Account'|t }}</a></li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {# Mobile Accordion Nav (L1) #}
+                    <div class="L1Accord d-block d-lg-none accordion" id="port-accordion">
+                      {# Accounts #}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-header-one">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapse-one"
+                                  aria-expanded="false" aria-controls="collapse-one">
+                            {{ 'Accounts'|t }}
+                          </button>
+                        </h2>
+                        <div id="collapse-one" class="accordion-collapse collapse"
+                            aria-labelledby="accordion-header-one" data-bs-parent="#port-accordion">
+                          <div class="accordion-body" data-hotspot="1">
+                            <div class="L2Accord accordion" id="country-accordion-one">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-reg-ca">{{ 'Regular Current Account'|t }}</button></h2>
+                                <div id="collapse-reg-ca" class="accordion-collapse collapse" data-bs-parent="#country-accordion-one">
+                                  <div class="accordion-body">
+                                    <div class="row">
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Regular Current Account'|t }}</strong></div><div>{{ 'Enjoy a full range of essential banking facilities'|t }}</div></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-prem-ca">{{ 'Premium Current Accounts'|t }}</button></h2>
+                                <div id="collapse-prem-ca" class="accordion-collapse collapse" data-bs-parent="#country-accordion-one">
+                                  <div class="accordion-body">
+                                    <div class="row">
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Silver Current Account'|t }}</strong></div><div>{{ 'Perfect for day to day business, with more benefits'|t }}</div></div>
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Gold Current Account'|t }}</strong></div><div>{{ 'For businesses looking to expand and diversify'|t }}</div></div>
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Diamond Current Account'|t }}</strong></div><div>{{ 'For businesses looking for premium features'|t }}</div></div>
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Platinum Current Account'|t }}</strong></div><div>{{ 'For businesses looking for premier banking services'|t }}</div></div>
+                                      <div class="mb-4 mobile-pad"><div><strong>{{ 'Palladium Current Account'|t }}</strong></div><div>{{ 'Your Business meets Privilege'|t }}</div></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row menu_footer mt-3">
+                              <div class="col-12"><div class="row border-top">
+                                <div class="col-12 pb-4 pt-2">
+                                  <ul class="list-unstyled">
+                                    <li><a href="javascript:void(0);" tabindex="0" class="compare">
+                                      <span class="icon_place"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/compare-icon.svg"></span>{{ 'Compare Current Accounts'|t }}
+                                    </a></li>
+                                  </ul>
+                                </div>
+                              </div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {# Digital Solutions #}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-header-2">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                  aria-expanded="false" aria-controls="collapse-2">
+                            {{ 'Digital Solutions'|t }}
+                          </button>
+                        </h2>
+                        <div id="collapse-2" class="accordion-collapse collapse"
+                            aria-labelledby="accordion-header-2" data-bs-parent="#port-accordion">
+                          <div class="accordion-body">
+                            <div class="row">
+                              <div class="mb-2 mt-2"><div><strong>{{ 'yono Business (YB) / Corporate INB'|t }}</strong></div><div>{{ 'Manage accounts, transactions and banking operations online'|t }}</div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Trade Finance (eTrade)'|t }}</strong></div><div>{{ 'Apply for LCs &amp; BGs digitally'|t }}</div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Forex (eForex)'|t }}</strong></div><div>{{ 'User friendly online platform to book foreign exchange'|t }}</div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Cash Management Product (CMP)'|t }}</strong></div><div>{{ 'Manage your cash flow, liquidity and financial operations efficiently'|t }}</div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Supply Chain Finance (SCF)'|t }}</strong></div><div>{{ 'Managing supply chain by providing working capital and improving liquidity'|t }}</div></div>
+                            </div>
+                            <div class="row menu_footer mt-3">
+                              <div class="col-12"><div class="row border-top">
+                                <div class="col-12 pb-4 pt-2">
+                                  <div><a href="javascript:void(0);" tabindex="0" class="menu_link">{{ 'View All Digital Solutions'|t }}</a></div>
+                                </div>
+                              </div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {# Trade Finance #}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-header-3">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                  aria-expanded="false" aria-controls="collapse-3">
+                            {{ 'Trade Finance'|t }}
+                          </button>
+                        </h2>
+                        <div id="collapse-3" class="accordion-collapse collapse"
+                            aria-labelledby="accordion-header-3" data-bs-parent="#port-accordion">
+                          <div class="accordion-body">
+                            <div class="row">
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Inland Letter of Credit (LC) Issuance'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Import Letter of Credit (LC) Issuance'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Export LC / Non-LC Bills Collection'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Inland Bank Guarantee'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Electronic BG (eBG)'|t }}</strong></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {# Forex & Treasury #}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-header-4">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                  aria-expanded="false" aria-controls="collapse-4">
+                            {{ 'Forex &amp; Treasury'|t }}
+                          </button>
+                        </h2>
+                        <div id="collapse-4" class="accordion-collapse collapse"
+                            aria-labelledby="accordion-header-4" data-bs-parent="#port-accordion">
+                          <div class="accordion-body">
+                            <div class="row">
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Customized Derivative Solutions'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Forward Contracts'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Commercial Paper'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Non-Convertible Debentures'|t }}</strong></div></div>
+                              <div class="mb-2 mt-2"><div><strong>{{ 'Foreign Travel Cards (FTCs)'|t }}</strong></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>{# /.L1Accord mobile accordion #}
+
+                    {# ── Desktop Mega-nav (rendered via Drupal primary menu region) #}
+                    {% if page.primary_menu %}
+                      <div class="d-none d-lg-block">
+                        {# 
+                        {{ page.primary_menu }}
+                        #}
+                        <ul class="navbar-nav cust_margin11">
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Accounts" aria-expanded="false">Accounts</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00 d-flex align-items-start">
+                                                 <div class="col-12 col-md-4 margin00 padding00 menu_background ">
+                                                    <ul class="mega_menu_main_section margin00 padding00 nav nav-pills">
+                                                       <li tabindex="0"  ><a href="javascript:void(0);" class="active" tabindex="-1" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" title="Regular Current Account">Regular Current Account</a></li>
+                                                       <li tabindex="0"  ><a href="javascript:void(0);" tabindex="-1" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" title="Premium Current Accounts">Premium Current Accounts</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" title="Value Based Current Accounts">Value Based Current Accounts</a></li>
+                                                       
+                                                    </ul>
+                                                   
+                                                    <!--<div class="d-flex align-items-start">
+                                                      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                        <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Regular Current Account</button>
+                                                        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Premium Current Accounts</button>
+                                                        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Value Based Current Accounts</button>
+                                                      </div>
+                                                      <div class="tab-content" id="submenu_hei" class="col-12 submenu_minHeight">
+                                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                           
+                                                        </div>
+                                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                                                      </div>
+                                                    </div>-->
+                                                   
+                                                   
+                                                   
+                                                   
+                                                   
+                                                   
+                                                 </div>
+                                                 <!---->
+                                                 <div class="col-8">
+                                                    <div class=" tab-content">
+                                                       <div  class="row col-12 ">
+                                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                                <div class="row submenu_minHeight" id="submenu_hei">
+                                                                    <div class="sub_menu col-4 ">
+                                                                        <a href="javascript:void(0);" tabindex="0" title="Regular Current Account">
+                                                                            <div class="title">Regular Current Account</div>
+                                                                            <div class="desc"> Enjoy a full range of essential banking facilities</div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row menu_footer mt-3">
+                                                                   <div class="col-12">
+                                                                      <div class="row border-top">
+                                                                         <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                            <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Regular Current Account</a></div>
+                                                                            <!---->
+                                                                         </div>
+                                                                         <!---->
+                                                                         <div class="col-7 col-4 pb-4 pt-2 text-end ">
+                                                                            <ul>
+                                                                               <li ><a href="javascript:void(0);" tabindex="0" class="compare" title="Compare Current Accounts"><span class="icon_place"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/compare-icon.svg"></span>Compare Current Accounts</a></li>
+                                                                               <!---->
+                                                                            </ul>
+                                                                         </div>
+                                                                         <!---->
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                <div class="row submenu_minHeight" id="submenu_hei">
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Silver Current Account">
+                                                                         <div class="title">Silver Current Account</div>
+                                                                         <div class="desc"> Perfect for day to day business, with more benefits</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Gold Current Account">
+                                                                         <div class="title">Gold Current Account</div>
+                                                                         <div class="desc"> For businesses looking to expand and diversify</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Diamond Current Account">
+                                                                         <div class="title">Diamond Current Account</div>
+                                                                         <div class="desc"> For businesses looking for premium features</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Platinum Current Account">
+                                                                         <div class="title">Platinum Current Account</div>
+                                                                         <div class="desc"> For businesses looking for premier banking services</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Palladium Current Account">
+                                                                         <div class="title">Palladium Current Account</div>
+                                                                         <div class="desc"> Your Business meets Privilege</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Rhodium Current Account">
+                                                                         <div class="title">Rhodium Current Account</div>
+                                                                         <div class="desc"> Most Premium account with power-packed features</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                                </div>
+                                                                <div class="row menu_footer mt-3">
+                                                                   <div class="col-12">
+                                                                      <div class="row border-top">
+                                                                         <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                            <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Premium Current Accounts</a></div>
+                                                                            <!---->
+                                                                         </div>
+                                                                         <!---->
+                                                                         <div class="col-7 col-4 pb-4 pt-2 text-end ">
+                                                                            <ul>
+                                                                               <li ><a href="javascript:void(0);" tabindex="0" class="compare" title="Compare Current Accounts"><span class="icon_place"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/compare-icon.svg"></span>Compare Current Accounts</a></li>
+                                                                               <!---->
+                                                                            </ul>
+                                                                         </div>
+                                                                         <!---->
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                                <div class="row submenu_minHeight" id="submenu_hei">
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Smart Collection Account">
+                                                                         <div class="title">Smart Collection Account</div>
+                                                                         <div class="desc"> Manage funds across all your Units' locations</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="RERA Current Account">
+                                                                         <div class="title">RERA Current Account</div>
+                                                                         <div class="desc"> Designed for realtors, to meet directions of RERA Authorities</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Import Export Trader's CA">
+                                                                         <div class="title">Import Export Trader's CA</div>
+                                                                         <div class="desc"> A Specialized CA for Non-Credit SME Customers. with forex features.</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Escrow Current Account">
+                                                                         <div class="title">Escrow Current Account</div>
+                                                                         <div class="desc"> Specialized Account for escrow arrangements</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Shubharambh CA">
+                                                                         <div class="title">Shubharambh CA</div>
+                                                                         <div class="desc"> A start up Current Account for new Businesses</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Shubharambh Premium CA">
+                                                                         <div class="title">Shubharambh Premium CA</div>
+                                                                         <div class="desc"> Account for start-ups with premium facilities</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="No Lien Current Account">
+                                                                         <div class="title">No Lien Current Account</div>
+                                                                         <div class="desc"> Project specific specialized Current Account</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Digital Current Account">
+                                                                         <div class="title">Digital Current Account</div>
+                                                                         <div class="desc"> Account for daily operations, easy reconciliation</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Auto-Sweep (Surabhi CA)">
+                                                                         <div class="title">Auto-Sweep (Surabhi CA)</div>
+                                                                         <div class="desc"> Liquidity with better returns by providing sweep facility as a value-added service</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                                </div>
+                                                                <div class="row menu_footer mt-3">
+                                                                   <div class="col-12">
+                                                                      <div class="row border-top">
+                                                                         <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                            <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Value Based Current Accounts</a></div>
+                                                                            <!---->
+                                                                         </div>
+                                                                         <!---->
+                                                                         <div class="col-7 col-4 pb-4 pt-2 text-end ">
+                                                                            <ul>
+                                                                               <li ><a href="javascript:void(0);" tabindex="0" class="compare" title="Compare Current Accounts"><span class="icon_place"><img loading="lazy" src="{{ base_path ~ directory }}/images/header/compare-icon.svg"></span>Compare Current Accounts</a></li>
+                                                                               <!---->
+                                                                            </ul>
+                                                                         </div>
+                                                                         <!---->
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                           
+                                                         
+                                                       </div>
+                                                    </div>
+                                                   
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Digital Solutions" aria-expanded="false">Digital Solutions</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 " data-bs-popper="static">
+                                       <div class="mega-content">
+                                          <div class="container-fluid margin00 padding00">
+                                             <div class="row margin00 padding00">
+                                                <!---->
+                                                <div class="col-12">
+                                                   <div class="row">
+                                                      <div id="submenu_hei" class="col-12 submenu_minHeight">
+                                                         <div class="row">
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="yono Business (YB) / Corporate INB">
+                                                                  <div class="title">yono Business (YB) / Corporate INB</div>
+                                                                  <div class="desc"> Manage accounts, transactions and banking operations online</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Trade Finance (eTrade)">
+                                                                  <div class="title">Trade Finance (eTrade)</div>
+                                                                  <div class="desc"> Apply for LCs &amp; BGs digitally</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Forex (eForex)">
+                                                                  <div class="title">Forex (eForex)</div>
+                                                                  <div class="desc"> User friendly online platform to book foreign exchange</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Cash Management Product (CMP)">
+                                                                  <div class="title">Cash Management Product (CMP)</div>
+                                                                  <div class="desc"> Manage your cash flow, liquidity and financial operations efficiently</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Supply Chain Finance (SCF)">
+                                                                  <div class="title">Supply Chain Finance (SCF)</div>
+                                                                  <div class="desc"> Managing supply chain by providing working capital and improving liquidity</div>
+                                                               </a>
+                                                            </div>
+                                                            <!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="row menu_footer mt-3">
+                                                      <div class="col-12">
+                                                         <div class="row border-top">
+                                                            <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                               <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All Digital Solutions">View All Digital Solutions</a></div>
+                                                               <!---->
+                                                            </div>
+                                                            <!----><!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Trade Finance">Trade Finance</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00 d-flex align-items-start">
+                                                 <div class="col-12 col-md-4 margin00 padding00 menu_background ">
+                                                    <ul class="mega_menu_main_section margin00 padding00 nav nav-pills">
+                                                       <li tabindex="0" ><a href="javascript:void(0);" class="active" tabindex="-1" id="v-pills-Inland-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Inland" title="Inland">Inland</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-Import-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Import" title="Import">Import</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-Export-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Export" title="Export">Export</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-bg-tab" data-bs-toggle="pill" data-bs-target="#v-pills-bg" title="Bank Guarantees">Bank Guarantees</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-EDPMS-tab" data-bs-toggle="pill" data-bs-target="#v-pills-EDPMS" title="EDPMS / IDPMS">EDPMS / IDPMS</a></li>
+                                                       <!---->
+                                                    </ul>
+                                                 </div>
+                                                 <!---->
+                                                 <div class="col-8">
+                                                    <div class=" tab-content">
+                                                        <div class="row col-12">
+                                                        <div class="tab-pane fade show active" id="v-pills-Inland" role="tabpanel" aria-labelledby="v-pills-Inland-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inland Letter of Credit (LC) Issuance">
+                                                                         <div class="title">Inland Letter of Credit (LC) Issuance</div>
+                                                                         <div class="desc"> Get Inland LC issued with quick turnaround time</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inland Inward LC / Non-LC Bills Collection">
+                                                                         <div class="title">Inland Inward LC / Non-LC Bills Collection</div>
+                                                                         <div class="desc"> Efficient handling of bills raised by suppliers</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inland Letter of Credit (LC) Advising">
+                                                                         <div class="title">Inland Letter of Credit (LC) Advising</div>
+                                                                         <div class="desc"> Receive details of LCs issued in your favour</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inland Outward LC / Non-LC Bills Collection">
+                                                                         <div class="title">Inland Outward LC / Non-LC Bills Collection</div>
+                                                                         <div class="desc"> Our Inland Outward LC / Non-LC Bills Collection at very competitive prices</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Inland</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!---->
+                                                                     
+                                                                     <!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-Import" role="tabpanel" aria-labelledby="v-pills-Import-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Import Letter of Credit (LC) Issuance">
+                                                                         <div class="title">Import Letter of Credit (LC) Issuance</div>
+                                                                         <div class="desc"> Avail Import LC facility at competitive pricing and prompt service</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Import LC / Non-LC Bills Collection">
+                                                                         <div class="title">Import LC / Non-LC Bills Collection</div>
+                                                                         <div class="desc"> Efficient and prompt handling of Import Bill Collection facility is provided to ensure hassle-free imports</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Import Payments">
+                                                                         <div class="title">Import Payments</div>
+                                                                         <div class="desc"> Import payment services for all requirements</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Buyer's Credit">
+                                                                         <div class="title">Buyer's Credit</div>
+                                                                         <div class="desc"> Avail foreign currency loan for trade and capex requirement</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Import</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-Export" role="tabpanel" aria-labelledby="v-pills-Export-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Letter of Credit (LC) Advising">
+                                                                         <div class="title">Letter of Credit (LC) Advising</div>
+                                                                         <div class="desc"> Receive details of LCs issued in your favour</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Export LC / Non-LC Bills Collection">
+                                                                         <div class="title">Export LC / Non-LC Bills Collection</div>
+                                                                         <div class="desc"> Our Export LC / Non-LC Bills Collection Services</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Packing Credit Facility">
+                                                                         <div class="title">Packing Credit Facility</div>
+                                                                         <div class="desc"> Pre-Shipment credit facility to cover costs related to Export</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Exports Receipts">
+                                                                         <div class="title">Exports Receipts</div>
+                                                                         <div class="desc"> Convert exports receipts received in foreign currency</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Exporter's Gold Card Scheme">
+                                                                         <div class="title">Exporter's Gold Card Scheme</div>
+                                                                         <div class="desc"> Designed for exporters with a good track record</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Rupee Invoicing &amp; Settlement">
+                                                                         <div class="title">Rupee Invoicing &amp; Settlement</div>
+                                                                         <div class="desc"> International trade transactions in INR</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Export</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                   
+                                                        <div class="tab-pane fade" id="v-pills-bg" role="tabpanel" aria-labelledby="v-pills-bg-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inland Bank Guarantee">
+                                                                         <div class="title">Inland Bank Guarantee</div>
+                                                                         <div class="desc"> Inland Bank Guarantees facility is provided at competitive pricing and faster turn around time</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Foreign Bank Guarantee (FBG)">
+                                                                         <div class="title">Foreign Bank Guarantee (FBG)</div>
+                                                                         <div class="desc"> We provide facility of Foreign Bank Guarantee on Inward as well as Outward basis</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Electronic BG (eBG)">
+                                                                         <div class="title">Electronic BG (eBG)</div>
+                                                                         <div class="desc"> We issue Electronic Bank Guarantee also</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Bank Guarantees</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-EDPMS" role="tabpanel" aria-labelledby="v-pills-EDPMS-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Export Data Processing and Monitoring System">
+                                                                         <div class="title">Export Data Processing and Monitoring System</div>
+                                                                         <div class="desc"> Electronic system managed by RBI to monitor and process export-related transactions</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Import Data Processing and Monitoring System">
+                                                                         <div class="title">Import Data Processing and Monitoring System</div>
+                                                                         <div class="desc"> Electronic system managed by RBI to monitor and process import-related transactions</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All EDPMS / IDPMS</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                   
+                                                       </div>
+                                                    </div>
+                                                   
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Forex &amp; Treasury" aria-expanded="false">Forex &amp; Treasury</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00 d-flex align-items-start">
+                                                 <div class="col-12 col-md-4 margin00 padding00 menu_background ">
+                                                    <ul class="mega_menu_main_section margin00 padding00 nav nav-pills">
+                                                       <li tabindex="0" ><a href="javascript:void(0);" class="active" tabindex="-1" id="v-pills-corpforex-tab" data-bs-toggle="pill" data-bs-target="#v-pills-corpforex" title="Corporate Forex Solutions">Corporate Forex Solutions</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-fixedincome-tab" data-bs-toggle="pill" data-bs-target="#v-pills-fixedincome" title="Fixed Income Solutions">Fixed Income Solutions</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-retailforex-tab" data-bs-toggle="pill" data-bs-target="#v-pills-retailforex" title="Retail Forex Solutions">Retail Forex Solutions</a></li>
+                                                       <!---->
+                                                    </ul>
+                                                 </div>
+                                                 <!---->
+                                                 <div class="col-8">
+                                                    <div class=" tab-content">
+                                                        <div class="row col-12">
+                                                       <div class="tab-pane fade show active" id="v-pills-corpforex" role="tabpanel" aria-labelledby="v-pills-corpforex-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Customized Derivative Solutions">
+                                                                         <div class="title">Customized Derivative Solutions</div>
+                                                                         <div class="desc"> Hedging solutions with profit potential</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Forward Contracts">
+                                                                         <div class="title">Forward Contracts</div>
+                                                                         <div class="desc"> Over the counter contract to hedge your Forex exposure</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Inward Remittance for Corporates">
+                                                                         <div class="title">Inward Remittance for Corporates</div>
+                                                                         <div class="desc"> Convert remittances received in foreign currency</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Merchant Transactions">
+                                                                         <div class="title">Merchant Transactions</div>
+                                                                         <div class="desc"> Competitive quotes for Cash, Tom, Spot for major currencies for all your trade transactions</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Outward Remittance by Corporates">
+                                                                         <div class="title">Outward Remittance by Corporates</div>
+                                                                         <div class="desc"> Outward remittance services for all requirements</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Swaps">
+                                                                         <div class="title">Swaps</div>
+                                                                         <div class="desc"> Solution to hedge currency and interest rate risks</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Corporate Forex Solutions</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-fixedincome" role="tabpanel" aria-labelledby="v-pills-fixedincome-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Commercial Paper">
+                                                                         <div class="title">Commercial Paper</div>
+                                                                         <div class="desc"> Unsecured money market instrument issued in the form of a promissory note</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Non-Convertible Debentures">
+                                                                         <div class="title">Non-Convertible Debentures</div>
+                                                                         <div class="desc"> Debt instruments issued by companies to raise  long term funds</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Interest Rate Derivatives">
+                                                                         <div class="title">Interest Rate Derivatives</div>
+                                                                         <div class="desc"> Solutions to manage your interest rate risks and profit from favourable movement</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Fixed Income Solutions</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-retailforex" role="tabpanel" aria-labelledby="v-pills-retailforex-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Foreign Travel Cards (FTCs)">
+                                                                         <div class="title">Foreign Travel Cards (FTCs)</div>
+                                                                         <div class="desc"> Smart way to carry foreign currency</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Retail Inward Remittance">
+                                                                         <div class="title">Retail Inward Remittance</div>
+                                                                         <div class="desc"> Convert your remittances received in foreign currencies to Rupee</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Retail Outward Remittance">
+                                                                         <div class="title">Retail Outward Remittance</div>
+                                                                         <div class="desc"> Services for retail outward remittance</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Retail Forex Solutions</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Loans" aria-expanded="false">Loans</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00">
+                                                 <!---->
+                                                 <div class="col-12">
+                                                    <div class="row">
+                                                       <div id="submenu_hei" class="col-12 submenu_minHeight">
+                                                          <div class="row">
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="eCollection-Virtual Account Number (VAN)">
+                                                                   <div class="title">eCollection-Virtual Account Number (VAN)</div>
+                                                                   <div class="desc"> Get your receivables using Virtual Account Number (VAN)</div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Cash / Cheques Pickup">
+                                                                   <div class="title">Cash / Cheques Pickup</div>
+                                                                   <div class="desc"> Enables cash and cheque pick up from your doorstep </div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Power Jyoti PUL">
+                                                                   <div class="title">Power Jyoti PUL</div>
+                                                                   <div class="desc"> Use our centralized platform to receive funds from all SBI branches</div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Mandates">
+                                                                   <div class="title">Mandates</div>
+                                                                   <div class="desc"> Mandate Management facilitates e-collections of repetitive nature</div>
+                                                                </a>
+                                                             </div>
+                                                             <!---->
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="row menu_footer mt-3">
+                                                       <div class="col-12">
+                                                          <div class="row border-top">
+                                                             <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All Loans">View All Loans</a></div>
+                                                                <!---->
+                                                             </div>
+                                                             <!----><!---->
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link active" title="Cash Management Product" aria-expanded="false">Cash Management Product</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00 d-flex align-items-start">
+                                                 <div class="col-12 col-md-4 margin00 padding00 menu_background ">
+                                                    <ul class="mega_menu_main_section margin00 padding00 nav nav-pills">
+                                                       <li tabindex="0" ><a href="javascript:void(0);" class="active" tabindex="-1" id="v-pills-Collections-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Collections" title="Corporate Forex Solutions">Collections</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-Payments-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Payments" title="Fixed Income Solutions">Payments</a></li>
+                                                       <li tabindex="0" ><a href="javascript:void(0);" tabindex="-1" id="v-pills-Liquidity-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Liquidity" title="Retail Forex Solutions">Liquidity Management</a></li>
+                                                       <!---->
+                                                    </ul>
+                                                 </div>
+                                                 <!---->
+                                                 <div class="col-8">
+                                                    <div class=" tab-content">
+                                                    <div class="row col-12">
+                                                       <div class="tab-pane fade show active" id="v-pills-Collections" role="tabpanel" aria-labelledby="v-pills-Collections-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="eCollection-Virtual Account Number (VAN)">
+                                                                         <div class="title">eCollection-Virtual Account Number (VAN)</div>
+                                                                         <div class="desc"> Get your receivables using Virtual Account Number (VAN)</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Cash / Cheques Pickup">
+                                                                         <div class="title">Cash / Cheques Pickup</div>
+                                                                         <div class="desc"> Enables cash and cheque pick up from your doorstep </div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Power Jyoti PUL">
+                                                                         <div class="title">Power Jyoti PUL</div>
+                                                                         <div class="desc"> Use our centralized platform to receive funds from all SBI branches</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Mandates">
+                                                                         <div class="title">Mandates</div>
+                                                                         <div class="desc"> Mandate Management facilitates e-collections of repetitive nature</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Collections</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="v-pills-Payments" role="tabpanel" aria-labelledby="v-pills-Payments-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="e-Payments">
+                                                                         <div class="title">e-Payments</div>
+                                                                         <div class="desc"> Manage your Bulk payments effectively through secure channels</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="CCPAP (Corporate Cheques Payable at Par)">
+                                                                         <div class="title">CCPAP (Corporate Cheques Payable at Par)</div>
+                                                                         <div class="desc"> Manage business efficiently with CCPAP</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Dividend Warrants">
+                                                                         <div class="title">Dividend Warrants</div>
+                                                                         <div class="desc"> Hassle-free solution to distribute your dividends to your shareholders</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Payments</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="tab-pane fade" id="v-pills-Liquidity" role="tabpanel" aria-labelledby="v-pills-Liquidity-tab">
+                                                            <div class="row submenu_minHeight" id="submenu_hei">
+                                                               
+                                                                   <div class="sub_menu col-4 ">
+                                                                      <a href="javascript:void(0);" tabindex="0" title="Liquidity Management">
+                                                                         <div class="title">Liquidity Management</div>
+                                                                         <div class="desc"> Efficiently manage your funds with various sweep and funding options</div>
+                                                                      </a>
+                                                                   </div>
+                                                                   <!---->
+                                                               
+                                                            </div>
+                                                            <div class="row menu_footer mt-3">
+                                                               <div class="col-12">
+                                                                  <div class="row border-top">
+                                                                     <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                        <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All">View All Liquidity Management</a></div>
+                                                                        <!---->
+                                                                     </div>
+                                                                     <!----><!---->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                       
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Supply Chain Finance">Supply Chain Finance</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 ">
+                                        <div class="mega-content">
+                                           <div class="container-fluid margin00 padding00">
+                                              <div class="row margin00 padding00">
+                                                 <!---->
+                                                 <div class="col-12">
+                                                    <div class="row">
+                                                       <div id="submenu_hei" class="col-12 submenu_minHeight">
+                                                          <div class="row">
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="eCollection-Virtual Account Number (VAN)">
+                                                                   <div class="title">eCollection-Virtual Account Number (VAN)</div>
+                                                                   <div class="desc"> Get your receivables using Virtual Account Number (VAN)</div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Cash / Cheques Pickup">
+                                                                   <div class="title">Cash / Cheques Pickup</div>
+                                                                   <div class="desc"> Enables cash and cheque pick up from your doorstep </div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Power Jyoti PUL">
+                                                                   <div class="title">Power Jyoti PUL</div>
+                                                                   <div class="desc"> Use our centralized platform to receive funds from all SBI branches</div>
+                                                                </a>
+                                                             </div>
+                                                             <div class="sub_menu col-3 ">
+                                                                <a href="javascript:void(0);" tabindex="0" title="Mandates">
+                                                                   <div class="title">Mandates</div>
+                                                                   <div class="desc"> Mandate Management facilitates e-collections of repetitive nature</div>
+                                                                </a>
+                                                             </div>
+                                                             <!---->
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="row menu_footer mt-3">
+                                                       <div class="col-12">
+                                                          <div class="row border-top">
+                                                             <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                                <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All Supply Chain Finance">View All Supply Chain Finance</a></div>
+                                                                <!---->
+                                                             </div>
+                                                             <!----><!---->
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="API Solutions">API Solutions</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 " data-bs-popper="static">
+                                       <div class="mega-content">
+                                          <div class="container-fluid margin00 padding00">
+                                             <div class="row margin00 padding00">
+                                                <!---->
+                                                <div class="col-12">
+                                                   <div class="row">
+                                                      <div id="submenu_hei" class="col-12 submenu_minHeight">
+                                                         <div class="row">
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Accounts">
+                                                                  <div class="title">Accounts</div>
+                                                                  <div class="desc"> Account validation, Balances and Statements, MT940 statement APIs etc</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Payments &amp; Collections">
+                                                                  <div class="title">Payments &amp; Collections</div>
+                                                                  <div class="desc"> Single and Bulk payment APIs, in STP/non-STP mode</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Trade">
+                                                                  <div class="title">Trade</div>
+                                                                  <div class="desc"> Inland LC, Import LC, Bank Guarantee and Exports APIs</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Others">
+                                                                  <div class="title">Others</div>
+                                                                  <div class="desc"> Authentication and GST APIs</div>
+                                                               </a>
+                                                            </div>
+                                                            <!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="row menu_footer mt-3">
+                                                      <div class="col-12">
+                                                         <div class="row border-top">
+                                                            <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                               <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All API Solutions">View All API Solutions</a></div>
+                                                               <!---->
+                                                            </div>
+                                                            <!----><!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                     <!---->
+                                  </li>
+                                  <li class="nav-item dropdown dropdown-mega position-static ">
+                                     <a aria-current="page" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="nav-link" title="Connected Banking">Connected Banking</a>
+                                     <div class="dropdown-menu shadow margin00 padding00 " data-bs-popper="static">
+                                       <div class="mega-content">
+                                          <div class="container-fluid margin00 padding00">
+                                             <div class="row margin00 padding00">
+                                                <!---->
+                                                <div class="col-12">
+                                                   <div class="row">
+                                                      <div id="submenu_hei" class="col-12 submenu_minHeight">
+                                                         <div class="row">
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Accounting &amp; Invoicing">
+                                                                  <div class="title">Accounting &amp; Invoicing</div>
+                                                                  <div class="desc"> Generating invoices, managing payments and tracking financial transactions</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Inventory Management">
+                                                                  <div class="title">Inventory Management</div>
+                                                                  <div class="desc"> Maintain stocks, fulfill orders and monitor stock levels</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="HRMS &amp; Payroll">
+                                                                  <div class="title">HRMS &amp; Payroll</div>
+                                                                  <div class="desc"> Recruitment, Payroll, Performance management and other HR functions</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Expense Management">
+                                                                  <div class="title">Expense Management</div>
+                                                                  <div class="desc"> Optimize spending and improve financial control</div>
+                                                               </a>
+                                                            </div>
+                                                            <div class="sub_menu col-3 ">
+                                                               <a href="javascript:void(0);" tabindex="0" title="Customer Relationship Management">
+                                                                  <div class="title">Customer Relationship Management</div>
+                                                                  <div class="desc"> Manage, analyze, improve interaction with customers</div>
+                                                               </a>
+                                                            </div>
+                                                            <!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="row menu_footer mt-3">
+                                                      <div class="col-12">
+                                                         <div class="row border-top">
+                                                            <div class="col-12 col-md-5 pb-4 pt-2 ">
+                                                               <div ><a href="javascript:void(0);" tabindex="0" class="menu_link" title="View All Connected Banking">View All Connected Banking</a></div>
+                                                               <!---->
+                                                            </div>
+                                                            <!----><!---->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                     <!---->
+                                  </li>
+                                  <!---->
+                               </ul>
+                      </div>
+                    {% endif %}
+
+                  </div>{# /#navbar-content #}
+                </div>{# /.container-fluid #}
+              </nav>
+            </div>{# /.container-xl #}
+          </div>{# /.Main-header_menu #}
+
+        </div>{# /.Main-header #}
+
+      </header>
+    </div>{# /.container-fluid #}
+  </div>{# /#prelogin-sbihome #}
+</div>

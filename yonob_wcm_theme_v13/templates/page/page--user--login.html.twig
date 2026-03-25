@@ -1,0 +1,83 @@
+{# ── Header Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+<main class="du-main-section">
+  <div class="login-bg-gradient py-lg-5 py-4" style="background: linear-gradient(135deg, #b0105b 0%, #1e0350 100%); min-height: 100vh;">
+    <div class="container-xl">
+      <div class="row gx-lg-5 justify-content-center pt-3">
+        {# Left side structure identical to Yono Business Login #}
+        <div class="col-lg-4 col-md-5 d-none d-md-block left-side-panel">
+           <div class="sidebar-boxes pe-lg-3">
+               <div class="login-sidebar-box bg-white p-4 mb-4" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                   <h6 class="fw-bold mb-3" style="letter-spacing:1px; color:#555; font-size: 13px;">SYSTEM MAINTENANCE</h6>
+                   <hr style="border-top:1px dashed #ccc; margin: 0.5rem 0;">
+                   <p class="mb-0 text-muted" style="border-left: 2px solid #eb5e28; padding-left: 10px; font-size: 14px;">None</p>
+               </div>
+               
+               <div class="login-sidebar-box bg-white p-4 mb-4" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                   <h6 class="fw-bold mb-3" style="letter-spacing:1px; color:#555; font-size: 13px;">FIRST TIME USER?</h6>
+                   <hr style="border-top:1px dashed #ccc; margin: 0.5rem 0;">
+                   <p class="text-muted mb-2" style="font-size: 14px;">Follow our 4 steps registration process</p>
+                   <a href="#" class="text-decoration-none fw-bold" style="color: #4a2979; font-size: 14px;">Register</a>
+               </div>
+  
+               <div class="login-sidebar-box bg-white p-4 mb-4" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                   <h6 class="fw-bold mb-3" style="letter-spacing:1px; color:#555; font-size: 13px;">ACCESS MANAGEMENT</h6>
+                   <hr style="border-top:1px dashed #ccc; margin: 0.5rem 0;">
+                   <ul class="list-unstyled mb-0 mt-3" style="font-size: 14px; padding-left: 0;">
+                       <li class="mb-3 d-flex align-items-center">
+                          <span class="me-2" style="color:#673391;">&#128274;</span> <!-- Lock icon -->
+                          <a href="#" class="text-decoration-none" style="color: #4a2979;">Lock User Access</a>
+                       </li>
+                       <li class="mb-3 d-flex align-items-center">
+                          <span class="me-2" style="color:#673391;">&#128275;</span> <!-- Unlock icon -->
+                          <a href="#" class="text-decoration-none" style="color: #4a2979;">Unlock User Access</a>
+                       </li>
+                       <li class="mb-3 d-flex align-items-center">
+                          <span class="me-2" style="color:#673391;">&#127760;</span> <!-- Web/IP icon -->
+                          <a href="#" class="text-decoration-none" style="color: #4a2979;">Enable or Disable IP Address</a>
+                       </li>
+                       <li class="mb-3 d-flex align-items-center">
+                          <span class="me-2" style="color:#673391;">&#128241;</span> <!-- Mobile icon -->
+                          <a href="#" class="text-decoration-none" style="color: #4a2979;">Register Mobile Number</a>
+                       </li>
+                       <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                             <span class="me-2 mt-1" style="color:#673391; line-height:1;">&#128101;</span> <!-- Users/Approve icon -->
+                             <div>
+                                <a href="#" class="text-decoration-none" style="color: #4a2979;">Set Password Post Approval</a><br>
+                                <small class="text-muted" style="font-size:11px;">(Admin, Two User, Branch)</small>
+                             </div>
+                          </div>
+                       </li>
+                       <li class="mb-0 d-flex align-items-center">
+                          <span class="me-2" style="color:#673391;">&#8644;</span> <!-- Change icon -->
+                          <a href="#" class="text-decoration-none" style="color: #4a2979;">Change State</a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+        </div>
+        
+        {# Right side login form box #}
+        <div class="col-lg-5 col-md-7 col-sm-10 col-12">
+          <div class="login-form-box bg-white p-4 p-md-5 position-relative" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); min-height: 520px;">
+             <a href="{{ path('<front>') }}" class="text-decoration-none d-inline-flex align-items-center mb-4" style="color: #4a2979; font-weight: 500; font-size: 15px;">
+                <span class="me-1 fw-bold">&lt;</span> Back to Home
+             </a>
+             
+             <h2 class="mb-4 fw-bold" style="color: #212529; font-size: 28px;">Login to <span style="color:#b90e6e;">yono</span> Business WCM</h2>
+             
+             {# Drupal form wrapper #}
+             <div class="drupal-login-form-wrapper mt-4">
+               {{ page.content }}
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{# ── Footer Include ────────────────────────────────────────────────── #}
+{% include directory ~ '/templates/layout/footer.html.twig' %}

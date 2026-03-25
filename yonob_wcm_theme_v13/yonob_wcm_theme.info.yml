@@ -1,0 +1,18 @@
+name: 'YonoB WCM Theme'
+type: theme
+description: 'A custom Drupal 11 frontend theme for YonoB WCM. Bootstrap 5, Owl Carousel, DataTables, jQuery UI, Chart.js, Masonry.'
+package: Custom
+core_version_requirement: ^10 || ^11
+base theme: false
+
+
+libraries:
+  - yonob_wcm_theme/global-styling
+  - yonob_wcm_theme/global-scripts
+
+regions:
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  footer: 'Footer'

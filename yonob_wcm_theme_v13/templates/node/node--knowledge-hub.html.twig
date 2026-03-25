@@ -1,0 +1,151 @@
+<article{{ attributes.addClass('article-blog-post') }}>
+  <a href="{{ url('<front>') }}knowledge-hub" class="previous-btn mb-3 d-inline-flex align-items-center text-decoration-none">
+   <img src="{{ url('<front>') }}themes/custom/yonob_wcm_theme/images/arrow-left-20.svg" alt="Back" class="me-2" style="width: 10px; height: 16px;">
+    <span>Back to All Articles</span>
+  </a>
+  {{ title_prefix }}
+  <h3 class="article-lead-title"{{ title_attributes }}>{{ node.title.value }}</h3>
+  {{ title_suffix }}
+  <div class="mb-3">
+    <span class="article-date">Published on : {{ node.field_published_on.value|date('d F Y') }}</span>
+    {% if not node.field_social_account.isEmpty() %}
+    <span class="ms-3">
+      <img src="{{ url('<front>') }}themes/custom/yonob_wcm_theme/images/x-twitter.svg" alt="Back" class="me-2" style="width: 24px; height: 24px;">
+      <span class="article-writer">@{{ node.field_social_account.value }}</span>
+    </span>
+    {% else %}
+    <span class="ms-3">
+      <img src="{{ url('<front>') }}themes/custom/yonob_wcm_theme/images/user-image.svg" alt="Back" class="me-2" style="width: 24px; height: 24px;">
+      <span class="article-writer">{{ node.field_published_by.value }}</span>
+    </span>
+    {% endif %}
+  </div>
+  <p>{{ node.field_short_description.value }}</p>
+
+  {% if not node.field_paragraphs_demo.isEmpty() %}
+    
+      {% for item in node.field_paragraphs_demo %}
+        {% set paragraph = item.entity %}
+        {% if paragraph %}
+          
+          {% if paragraph.bundle == 'text_heading' %}
+            {# --- Text Heading --- #}
+            <h5 class="article-sub-title mb-3">
+              {{ paragraph.field_text_heading_demo.value }}
+            </h5>
+            
+          {% elseif paragraph.bundle == 'text' %}
+            {# --- Text --- #}
+            
+              {{ paragraph.field_text_demo.value|raw }}
+            
+            
+          {% elseif paragraph.bundle == 'image' %}
+            {# --- Single Image --- #}
+            <div class="row mb-4">
+              <div class="col-md-11 mx-auto">
+                
+                    {% set image_uri = paragraph.field_image.entity.uri.value %}
+                    {% set image_alt = paragraph.field_image.alt %}
+                    {% if image_uri %}
+                      <img class="img-fluid w-100" src="{{ file_url(image_uri) }}" alt="{{ image_alt }}">
+                    {% endif %}
+                  
+              </div>
+            </div>
+          {% elseif paragraph.bundle == 'image_image' %}
+            {# --- Image + Image --- #}
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                {% set image_left_uri = paragraph.field_image_left.entity.uri.value %}
+                {% set image_left_alt = paragraph.field_image_left.alt %}
+                {% if image_left_uri %}
+                  <div class="col">
+                    <div class="card article-card h-100">
+                        <div class="card-body">
+                            <img src="{{ file_url(image_left_uri) }}" alt="{{ image_left_alt }}"
+                                class="card-img-top">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% set image_right_uri = paragraph.field_image_right.entity.uri.value %}
+                {% set image_right_alt = paragraph.field_image_right.alt %}
+                {% if image_right_uri %}
+                  <div class="col">
+                    <div class="card article-card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <img src="{{ file_url(image_right_uri) }}" alt="{{ image_right_alt }}" class="card-img-top">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                
+            </div>
+            
+          {% elseif paragraph.bundle == 'image_text' %}
+            {# --- Image + Text --- #}
+            <div class="row mb-4">
+               <div class="col-md-6 d-flex align-items-center">
+                    <div class="card article-card w-100">
+                        <div class="card-body">
+                            {% set image_demo_uri = paragraph.field_image_demo.entity.uri.value %}
+                            {% set image_demo_alt = paragraph.field_image_demo.alt %}
+                            {% if image_demo_uri %}
+                              <img class="img-fluid w-100" src="{{ file_url(image_demo_uri) }}" alt="{{ image_demo_alt }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="">
+                        {{ paragraph.field_text_demo.value|raw }}
+                    </div>
+                </div>
+                
+            </div>
+            
+          {% elseif paragraph.bundle == 'text_image' %}
+            {# --- Text + Image --- #}
+            <div class="row mb-4">
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="">
+                        {{ paragraph.field_text_demo.value|raw }}
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="card article-card w-100">
+                        <div class="card-body">
+                            {% set image_demo_uri = paragraph.field_image_demo.entity.uri.value %}
+                            {% set image_demo_alt = paragraph.field_image_demo.alt %}
+                            {% if image_demo_uri %}
+                              <img class="img-fluid w-100" src="{{ file_url(image_demo_uri) }}" alt="{{ image_demo_alt }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          {% elseif paragraph.bundle == 'text_text' %}
+            {# --- Text + Text --- #}
+            <div class="row mb-4">
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="">
+                        {{ paragraph.field_text_left.value|raw }}
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="">
+                        {{ paragraph.field_text_right.value|raw }}
+                    </div>
+                </div>
+                
+            </div>
+          {% endif %}
+          
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+
+</article>

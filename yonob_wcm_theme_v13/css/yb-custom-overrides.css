@@ -1,0 +1,96 @@
+/* Admin Toolbar Support */
+body.toolbar-fixed .du-header .top-header {
+  top: 39px;
+}
+
+body.toolbar-horizontal.toolbar-fixed.toolbar-tray-open .du-header .top-header {
+  top: 79px;
+}
+
+@media (max-width: 610px) {
+  body.toolbar-fixed .du-header .top-header {
+    top: 39px;
+  }
+}
+
+/* ----------------------------------------------------
+   User Login Page Overrides
+------------------------------------------------------- */
+/* Hide mega menu and upper buttons so header looks simple */
+.path--user-login .Main-header_menu,
+.path--user-login .top-header .Main-header_cta_actionbuttons,
+.path--user-login .Main-header_cta_actionbuttons {
+  display: none !important;
+}
+
+/* Base Form Reset */
+.path--user-login .login-form-box form.user-login-form {
+  margin: 0;
+}
+
+.path--user-login .login-form-box form.user-login-form .form-item {
+  margin-bottom: 24px;
+}
+
+.path--user-login .login-form-box form.user-login-form label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #444;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.path--user-login .login-form-box form.user-login-form label.js-form-required::after,
+.path--user-login .login-form-box form.user-login-form label.form-required::after {
+  content: " *";
+  color: #d9534f;
+}
+
+.path--user-login .login-form-box form.user-login-form input[type="text"],
+.path--user-login .login-form-box form.user-login-form input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  background-color: #fcfcfc;
+}
+
+.path--user-login .login-form-box form.user-login-form input[type="text"]:focus,
+.path--user-login .login-form-box form.user-login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #673391;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(103, 51, 145, 0.1);
+}
+
+.path--user-login .login-form-box form.user-login-form .description {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 6px;
+  display: block;
+}
+
+.path--user-login .login-form-box form.user-login-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.path--user-login .login-form-box form.user-login-form input[type="submit"] {
+  background: linear-gradient(135deg, #b0105b 0%, #673391 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.path--user-login .login-form-box form.user-login-form input[type="submit"]:hover {
+  opacity: 0.9;
+}

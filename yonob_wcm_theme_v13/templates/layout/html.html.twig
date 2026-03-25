@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * html.html.twig
+ *
+ * Default theme implementation for the outermost HTML document wrapper.
+ *
+ * Available variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: Root path of the Drupal installation.
+ * - node_type: Content type of the current node (if any).
+ * - head_title: List of text composing the head title.
+ * - page_top: Initial HTML to appear at the top of the page.
+ * - page: The content of the page, as a render array.
+ * - page_bottom: Final HTML appearing at the bottom of the page.
+ * - head: HTML for <head> assembled by Drupal core.
+ * - styles: The inline and linked CSS files for this page.
+ * - scripts: The CSS and JavaScript files for this page.
+ * - attributes: HTML attributes for the <html> element.
+ * - db_offline: A flag indicating if the Drupal database is offline.
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    {# Drupal-managed head elements (title, meta tags, etc.) #}
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+
+  <body{{ attributes }}>
+    
+      {# Drupal requires these visually-hidden links for accessibility #}
+      <a href="#main-content" class="visually-hidden focusable skip-link">
+        {{ 'Skip to main content'|t }}
+      </a>
+
+      {{ page_top }}
+       {{ page }}
+      {{ page_bottom }}
+
+      <js-bottom-placeholder token="{{ placeholder_token }}">
+    
+  </body>
+</html>

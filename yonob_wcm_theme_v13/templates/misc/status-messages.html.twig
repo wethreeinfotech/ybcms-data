@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * status-messages.html.twig
+ *
+ * Bootstrap 5 themed status messages (Drupal messenger).
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, indexed by message type.
+ * - status_headings: List of headings for the messages.
+ */
+#}
+
+{# Map Drupal message types to Bootstrap 5 alert variants #}
+{% set type_map = {
+  'status':  { 'alert': 'alert-success',  'icon': '✓' },
+  'warning': { 'alert': 'alert-warning',  'icon': '⚠' },
+  'error':   { 'alert': 'alert-danger',   'icon': '✕' },
+  'info':    { 'alert': 'alert-info',     'icon': 'ℹ' }
+} %}
+
+{% for type, messages in message_list %}
+  {% set alert_class = type_map[type] ? type_map[type].alert : 'alert-secondary' %}
+  {% set icon        = type_map[type] ? type_map[type].icon  : '•' %}
+
+  <div class="alert {{ alert_class }} alert-dismissible fade show my-3" role="alert" aria-label="{{ status_headings[type] }}">
+
+    {% if messages|length == 1 %}
+      <span class="alert-icon me-2">{{ icon }}</span>
+      {{ messages|first }}
+    {% else %}
+      <strong>{{ status_headings[type] }}</strong>
+      <ul class="mb-0 mt-1 ps-3">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="{{ 'Close'|t }}"></button>
+  </div>
+{% endfor %}

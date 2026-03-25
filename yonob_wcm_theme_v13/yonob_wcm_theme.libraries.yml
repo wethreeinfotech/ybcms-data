@@ -1,0 +1,90 @@
+# ---------------------------------------------------------------------------
+# YonoB WCM Theme — Asset Libraries
+# ---------------------------------------------------------------------------
+# Usage in Twig: {{ attach_library('yonob_wcm_theme/chart') }}
+# Usage in PHP:  $variables['#attached']['library'][] = 'yonob_wcm_theme/chart';
+# ---------------------------------------------------------------------------
+
+# ===== 1. Global CSS =======================================================
+global-styling:
+  version: 1.0.0
+  css:
+    base:
+      # Bootstrap 5 (loaded first — base layer)
+      css/bootstrap-5.3.3.min.css: { minified: true }
+    theme:
+      # jQuery UI
+      css/jquery-ui.css: {}
+      # Owl Carousel
+      css/owl.carousel.min.css: { minified: true }
+      css/owl.theme.default.min.css: { minified: true }
+      # Bootstrap Datepicker
+      css/bootstrap-datepicker.min.css: {}
+      # DataTable Bootstrap 5
+      css/dataTables.bootstrap5.css: {}
+      # Custom pre-login styles (main theme CSS)
+      css/yb-pre-login.css: {}
+      # Theme-level overrides (always loaded last)
+      css/yb-custom-overrides.css: {}
+
+# ===== 2. Global JS ========================================================
+global-scripts:
+  version: 1.0.0
+  js:
+    # jQuery (theme copy — Drupal also ships core/jquery, this ensures version)
+    js/jquery-3.7.1.min.js: { minified: true, weight: -20 }
+    # Bootstrap 5 bundle (includes Popper)
+    js/bootstrap.bundle-5.3.3.min.js: { minified: true, weight: -19 }
+    # jQuery UI
+    js/jquery-ui-1.14.js: { weight: -18 }
+    # Owl Carousel
+    js/owl.carousel.js: { weight: -16 }
+    # Bootstrap Datepicker
+    js/bootstrap-datepicker.min.js: { minified: true, weight: -14 }
+    # DataTable core + Bootstrap 5 adapter
+    js/dataTables.js: { weight: -12 }
+    js/dataTables.bootstrap5.js: { weight: -11 }
+    # Masonry layout engine
+    js/masonry.pkgd.min.js: { minified: true, weight: -10 }
+    # Custom theme script (runs last)
+    js/yb-pre-login.js: { weight: 0 }
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/drupal
+    - core/once
+    
+
+# ===== 3. Chart.js (attach only on pages that need charts) =================
+chart:
+  version: 3.7.1
+  js:
+    js/chart-3.7.1/chart.min.js: { minified: true, weight: -10 }
+    js/chart-3.7.1/chartjs-plugin-doughnutlabel.js: { weight: -8 }
+  dependencies:
+    - core/jquery
+
+# ===== 4. DataTable standalone (optional explicit attachment) ==============
+datatable:
+  version: 1.0.0
+  css:
+    theme:
+      css/dataTables.bootstrap5.css: {}
+  js:
+    js/dataTables.js: { weight: -11 }
+    js/dataTables.bootstrap5.js: { weight: 0 }
+  dependencies:
+    - core/jquery
+    - yonob_wcm_theme/global-styling
+
+# ===== 5. Owl Carousel standalone (optional explicit attachment) ===========
+owl-carousel:
+  version: 1.0.0
+  css:
+    theme:
+      css/owl.carousel.min.css: { minified: true }
+      css/owl.theme.default.min.css: { minified: true }
+  js:
+    js/owl.carousel.js: { weight: 0 }
+  dependencies:
+    - core/jquery

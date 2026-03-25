@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * node--testimonials.html.twig
+ *
+ * This provides the exact visual layout from the Client Stories carousel slide
+ * for an individual Testimonial node view. This satisfies the user requirement
+ * to use this "same section for review before published", effectively
+ * showing the full 3-item carousel even when previewing.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<div style="padding: 40px 0;"> <!-- Adding the dark background manually for single node preview outside carousel -->
+<article{{ attributes.addClass(classes) }}>
+  {% include directory ~ '/templates/layout/client-stories-carousel.html.twig' %}
+</article>
+</div>

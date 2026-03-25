@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>yono Business</title>
+    <meta name="description"
+        content="An integrated banking solution which can be accessed across devices, allowing you to plan, manage, grow & address corporate financial needs">
+    <meta name="keywords" content="banking, netbanking, online banking, corporate banking" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-5.3.3.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/dataTables.bootstrap5.css" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle-5.3.3.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/yb-pre-login.css" />
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap5.js"></script>
+    <script src="js/chart-3.7.1/chart.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/jquery-ui-1.14.js"></script>
+    <script src="js/yb-pre-login.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</head>
+
+<body>
+    <article class="drupal-main">
+        <div id="header" class="du-header"></div>
+        <main class="du-main-section">
+            <div class="l3-banner-blue container-fluid">
+                <div class="container-xl p-4">
+                    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Knowledge Hub</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <main class="container-xl">
+                <div class="row g-5 mt-0">
+                    <div class="col-lg-8">
+                        <article class="article-blog-post">
+                            <a href="khub-sbi-insights-all-articles.html" class="previous-btn mb-3">
+                                <svg class="svg-icon-20" role="img" viewBox="0 0 20 20">
+                                    <use xlink:href="images/arrow-left-20.svg"> </use>
+                                </svg>
+                                <span>Back to All Articles</span>
+                            </a>
+                            <h3 class="article-lead-title">The puzzle of Currency in Circulation (CiC) at all time high
+                                of ~Rs 40 Lakh crore, higher ATM withdrawals…declining currency /GDP ratio and record
+                                UPI transactions…the bottomline…Never disincentivize digital payments/UPI</h3>
+                            <div class="mb-3">
+                                <span class="article-date">Published on : 16 February 2026</span>
+                                <span class="ms-3">
+                                    <svg class="svg-icon-24" role="img" viewBox="0 0 24 24">
+                                        <use xlink:href="images/x-twitter.svg"> </use>
+                                    </svg>
+                                    <span class="article-writer">@kantisoumya</span>
+                                </span>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Executive Summary</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>Currency in circulation (CiC) in India has continued to rise, reaching new,
+                                    record-high levels in late 2025 and early 2026, of Rs 40 lakh crore for the month
+                                    ended Jan 2026, with a <span class="fw-bold-600">YoY growth of 11.1%</span>
+                                    (vis-à-vis 5.3% last year). On incremental basis (YTD), CiC has increased by Rs 2.76
+                                    lakh crore (Rs 88,517 crore) in the same period /3.11 times. </li>
+                                <li>In the similar line, the currency with public (CWP), which is ~97.6% of the CiC,
+                                    also reached all time high of ~Rs 39 lakh crore for the month ended Jan’26, (11.5%
+                                    vis-à-vis 5.4%. Going by <span class="fw-bold-600">current trends, CWP will surpass
+                                        the post pandemic FY21 incremental growth of Rs 4.6 lakh crore</span></li>
+                                <li class="fw-bold-600">Intriguingly, though the volume of cash in circulation has
+                                    continued to grow but the "cash-to-GDP" ratio has declined in recent years to 11% in
+                                    FY26 from 14.4% in FY21. Our estimated money demand model reveals that GDP
+                                    coefficient is insignificant and expectedly UPI is significant …which means the
+                                    direction of change of currency and GDP may be same, but incremental GDP growth is
+                                    now being less financed by cash and more through UPI</li>
+                                <li><span class="fw-bold-600">The puzzle is why the UPI transaction has surged and
+                                        currency in circulation has also jumped…</span> In fact, the overall ATM data,
+                                    sourced from RBI, indicates that the per-month cash withdrawal from ATM could
+                                    surpass the long-term average of Rs 2.5 lakh, with States like Karnataka, Tamil
+                                    Nadu, WB are showing an increasing trend in cash withdrawal at ATMs..</li>
+                                <li>
+                                    <span class="fw-bold-600">Firstly, in July 2025, the Karnataka Commercial Taxes
+                                        Department had issuedaround 18,000 GST notices to small traders and vendors for
+                                        UPI transactions exceeding the ₹40 lakh registration threshold between 2022 and
+                                        2025..This might have acted a disincentive to UPI transactions</span>
+                                    <ol class="bullet-list-num mt-2">
+                                        <li>To test the hypothesis that whether such event pushed consumers and small
+                                            traders into the shadows of cash in Karnataka and even in other states
+                                            through the news channel (selected randomly), we have employed the
+                                            intensity-based Difference-in-Differences (DiD) framework in five select
+                                            States on ATM withdrawals data.</li>
+                                        <li>The estimated results from DiD indicate that in Karnataka, post GST notice
+                                            in July 2025, the districts in the treatment group experienced a significant
+                                            additional increase of Rs 37 crore in ATM withdrawals per month, on an
+                                            average, relative to districts in the control group.</li>
+                                        <li>The estimated results are also significant for West Bengal and Kerala</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="fw-bold-600">Secondly, the motive to hold cash has also jumped
+                                        particularly in rural areas with low interest rates and the penchant for
+                                        consumption..</span> deposits growth remained sluggish during the current FY and
+                                    grew by 10.6% as of end-Jan 2026
+                                    <ol class="bullet-list-num mt-2">
+                                        <li>Our estimated augmented money demand function using GDP, UPI and other
+                                            variables reveal demand for money is positively correlated to GDP, though
+                                            statistically insignificant and negatively correlated to interest rate. In
+                                            otherwards, with the rise in GDP, currency demand increases but not in same
+                                            proportion with UPI and cash substitution. Declining interest rates may have
+                                            also resulted into higher precautionary demand for money</li>
+                                    </ol>
+                                </li>
+                                <li><span class="fw-bold-600">Thirdly, with the rise in precious metals prices, there
+                                        could have been rising currency in circulation through recycling of gold/silver
+                                        from households..</span> Households have found recent surge in prices to cash
+                                    out some holdings, leading to the rise of cash in circulation (CiC) in the economy.
+                                    The cut in GST and income taxes has acted as an inventive to boost household
+                                    consumption</li>
+                                <li>
+                                    <span class="fw-bold-600">Fourthly,</span> with the withdrawal of Rs 2000 note (RBI
+                                    announced on 19 May 2023) and as on end-March 2025 the share of Rs 500 note has
+                                    increased by 8.9% in terms of value to 86.0% and by 3.0% in terms of volume to
+                                    40.9%. In terms of value, the share of Rs 100 note has increased by 1.0% to 4.7% and
+                                    Rs 200 note by 0.8% to 0.8% in 2025, from 2023
+                                    <ol class="bullet-list-num mt-2">
+                                        <li>For public convenience, RBI has directed banks on 28 April 2025 to increase
+                                            Rs 100/200 denomination notes in ATMs and ensure that 96% of the ATMs should
+                                            dispense 100/200 notes by end-March 2026</li>
+                                        <li>Subsequently, we used the currency chest data to study the behavioral
+                                            changes in the use of currency denominations. The analysis indicates that
+                                            the share (in value terms) of Rs 500 note might have increased by ~4.4% in
+                                            the current fiscal (Apr’25-Jan’26). However, the share of all other big
+                                            denominations (like Rs 100/200) exhibited decline during the same period
+                                        </li>
+                                        <li>However, as per NPCI, based on volume, the average ticket size of P2M
+                                            transaction of less than Rs 500 has a whopping share of 86% in overall UPI
+                                            transactions. Thus the substitution of low denomination notes with UPI is
+                                            unlikely to happen completely</li>
+                                    </ol>
+                                </li>
+                                <li class="fw-bold-600">With the database upgradation, we believe RBI may look at
+                                    providing quarterly/half-yearly denomination wise data. Additionally, the Sate-wise
+                                    distribution of volume and value of key denominations will help facilitate research
+                                    and insights to analyse the behavioral pattern of currency usage & provide guidance
+                                    regarding evolving tenets of digital payments</li>
+                            </ul>
+                            <h3 class="article-lead-title">Trends in Currency in Circulation & Currency with Public</h3>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title">Currency in Circulation (CiC) is at All-Time High
+                                            of ~ Rs 40 lakh crore…</h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>As per the latest RBI data, the currency in circulation (CiC) has
+                                                reached all time high of ~Rs 40.0 lakh crore for the fortnight ended 31
+                                                Jan’2026, with a growth of 11.1% YoY, compared to last year growth of
+                                                5.3% YoY</li>
+                                            <li>On incremental basis (YTD), CiC has increased by Rs 2.76 lakh crore
+                                                (7.4%) during Apr’25 to Jan’26, compared to last year growth of Rs
+                                                88,817 crore (2.5%)</li>
+                                            <li>While the Reserve Money (M0) growth declined to 5.8% YoY from last year
+                                                growth of 3.5%, due to the CRR cut which reduced the ‘Bankers Deposits
+                                                with RBI’ component by Rs 1.86 lakh crore during Apr’25 to 31 Jan’26
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/currency-in-circulation.png"
+                                                alt="Currency in circulation movement year on year in percentage line chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">…similarly, Currency with Public (CWP) Reached All Time
+                                High of ~ Rs 39 lakh crore</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>As currency with public (CWP) accounts for ~97.6% of the CiC, the CWP also reached
+                                    all time high of Rs 39 lakh crore for the fortnight ended 31 Jan’26, with a YoY
+                                    growth of 11.5%, compared to last year growth of 5.4%. The growth has continued with
+                                    upward trend since end-October 2025</li>
+                                <li>On YTD basis, CWP increased by Rs 2.79 lakh crore (7.6%) during Apr 2025 to 31 Jan
+                                    2026, compared to last year YTD growth of only Rs 93,326 crore (2.7%) during the
+                                    corresponding period</li>
+                                <li class="fw-bold-600">By looking at the current trend, in FY26 it is expected that CWP
+                                    will surpass the FY21 incremental growth of Rs 4.6 lakh crore during the
+                                    post-Covid19 pandemic period</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/currency-with-public.png"
+                                                class="card-img-top"
+                                                alt="Currency with public is increasing line chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/incremental-growth.png"
+                                                class="card-img-top"
+                                                alt="Incremental growth in currency with public in RS lakh crore column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Incrementally, Currency (CiC and CWP) is increasing…</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>The monthly change (approx.) of both Currency in Circulation (CiC) and Currency with
+                                    Public (CWP) has been increasing since October 2025</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/cwp-approx.png" class="card-img-top"
+                                                alt="Currency with public approx monthly movement of RS crore column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/cic-monthly-approx.png"
+                                                class="card-img-top"
+                                                alt="CIC Monthly approx change in RS crore column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title">But ATM Cash Withdrawal remains at the Avg. Level
+                                        </h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>Despite Festive Season in October 2025, the cash withdrawal from ATM is
+                                                at the average level of Rs 2.5 lakh crore.</li>
+                                            <li class="fw-bold-600">It is interesting to note that during FY18-FY25, the
+                                                incremental average growth of currency with public was Rs 2.5 lakh crore
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/cash-withdrawal-atm.png"
+                                                alt="Cash withdrawal at ATMs in RS lakh crore column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 flex-column-- flex-row align-items-center justify-content-between">
+                                    <div class="me-0 m-auto">
+                                        <h5 class="article-sub-title">ATM Cash Withdrawal: State-wise Average could
+                                            surpass FY23 levels</h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>Average monthly cash withdrawals at ATMs, is likely to surpass FY24 and
+                                                FY25 levels..Top 6 States are Karnataka, West Bengal, Tamil Nadu,
+                                                Chhattisgarh, Punjab and Jharkhand are showing an increasing trend</li>
+                                        </ul>
+                                    </div>
+                                    <div class="">
+                                        <div class="card article-card h-100">
+                                            <div class="card-body">
+                                                <img src="images/articles/all-articles/monthly-average-cash-dispense.png"
+                                                    class="card-img-top"
+                                                    alt="Monthly average Cash dispensed per ATM in RS Crore column chart diagram">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/mac-dispense-atm.png"
+                                                alt="Monthly average Cash dispensed per ATM in RS Crore table">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title">UPI Transactions (in value) are increasing and is
+                                            at all time high of Rs 28.3 lakh crore</h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>UPI transactions value is much higher than the currency circulation in
+                                                India. For instance, CiC is Rs 40 lakh crore, while one month UPI
+                                                transaction in value is Rs 28.0 lakh crore, which is ~70% of the total
+                                                currency of the economy</li>
+                                            <li>UPI transactions in value terms indicate a huge jump of Rs 2.1 lakh
+                                                crore in October but declined in November by Rs 96,158 crore…. again,
+                                                increased by Rs 1.65 lakh crore in December</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/upi-transaction-value.png"
+                                                alt="UPI transaction in value on RS lakh crore column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">...But Cash as % GDP is declining since FY21..</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>Despite increase in CiC, cash as % of GDP is declining and ATM cash withdrawal as %
+                                    of GDP is also declining</li>
+                                <li class="fw-bold-600">This clearly indicates that digital transactions continue to
+                                    dominate our economy</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/cic-gdp-declining.png"
+                                                class="card-img-top" alt="CIC % gdp is declining column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/cw-atm-gdp.png" class="card-img-top"
+                                                alt="Cash withdrawal at ATM % GDP column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="article-lead-title mb-3">The puzzle of high CiC, high UPI, high currency
+                                withdrawals through ATM and declining currency /GDP ratio</h3>
+                            <h5 class="article-sub-title mb-3">Reason 1: Using DiD to estimate the impact of GST Notice
+                            </h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>In the second half of July 2025, it was reported that Karnataka issued nearly 18,000
+                                    GST demand notices based on UPI transaction</li>
+                                <li><span class="fw-bold-600">This news may have pulled back UPI transactions not only
+                                        in Karnataka but in certain other states also through signaling impact. To
+                                        empirically test for this, we estimated the impact of GST notices on ATM
+                                        transaction in random five states (to check whether this news had impact on
+                                        other states also) along with Karnataka..</span> These were West Bengal, Kerala,
+                                    Bihar & Chhattisgarh, by using data ATM withdrawal data from January 2025 to January
+                                    2026 of selected 5 states</li>
+                                <li><span class="fw-bold-600">We construct an intensity measure and bifurcated the
+                                        districts in high and low intensity districts using each district’s ATM
+                                        withdrawal with State-mean during the pre-GST notice.</span> Higher withdrawal
+                                    compared to mean indicate high demand for cash as well as greater pre-existing
+                                    financial infrastructure</li>
+                                <li>In our model: <span class="fw-bold-600">Treatment group are the districts that had
+                                        above-average ATM withdrawals in the pre-July period and Control group are
+                                        districts that had below-average ATM withdrawals in the pre July period</span>
+                                </li>
+                                <li><span class="fw-bold-600">DID usually focused on the group that has been exposed to
+                                        intervention but in our case announcements will affect all the districts and
+                                        across state..so we implemented intensity DID by interacting a post-July
+                                        dummy</span> to estimate whether districts with stronger pre-existing ATM
+                                    activity experienced a change in withdrawals after the July announcement relative to
+                                    districts with lower initial activity</li>
+                            </ul>
+                            <h5 class="article-sub-title mb-3">Estimated Model</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>
+                                    We then juxtaposed this exposure indicator with a post-July dummy to estimate
+                                    whether districts with higher ATM withdrawal experienced a differential change after
+                                    the GST notice. The estimated model as:
+                                    <div class="row my-4">
+                                        <div class="col-md-6 mx-auto">
+                                            <div class="card article-card">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="my-3 lead fw-bold-600">y = 𝛽0 + 𝛽1dB + δ0d2 + δ1d2 •
+                                                        dB + u</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ol class="bullet-list-num my-4">
+                                        <li>where y is the outcome of interest, d2 is a dummy variable for the second
+                                            time period. The dummy variable dB captures possible differences between the
+                                            treatment and control groups prior to the policy change (i.e. GST notice).
+                                            The time period dummy, d2, captures aggregate factors that would cause
+                                            changes in y even in the absence of a policy change. The coefficient of
+                                            interest, δ1, multiplies the interaction term, d2*dB, which is the same as a
+                                            dummy variable equal to one for those observations in the treatment group in
+                                            the second period</li>
+                                        <li>As indicated earlier, in July, small merchants received GST notice based on
+                                            UPI transactions. We termed this as an intervention and looked how treatment
+                                            and control performed after this news</li>
+                                    </ol>
+                                </li>
+                                <li class="fw-bold-600">Each state was estimated separately and the results are in the
+                                    next slide</li>
+                            </ul>
+                            <h5 class="article-sub-title mb-3">Estimated Results from intensity-based DiD</h5>
+                            <ul class="bullet-list-dot mb-2">
+                                <li>
+                                    <span class="fw-bold-600">The interpretation of our results from intensity-based DiD
+                                        is as follows:</span>
+                                    <ol class="bullet-list-num mt-2">
+                                        <li class="fw-bold-600">In Karnataka, post GST notice, the districts in the
+                                            treatment group experienced an additional increase of Rs 37 crore in ATM
+                                            withdrawals per month, on an average, relative to districts in the control
+                                            group</li>
+                                        <li>Bengaluru Urban has almost 30% share in total ATM withdrawals it was
+                                            judicious to estimate the Karnataka state excluding it. Our results indicate
+                                            that the districts in the treatment group experienced an additional increase
+                                            of Rs 10 crore in ATM withdrawals per month, on an average, relative to
+                                            districts in the control group</li>
+                                        <li>We also got significant results for West Bengal and Kerala, the results from
+                                            Bihar and Chhattisgarh were insignificant</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                            <img class="img-fluid rounded mb-4" src="images/articles/all-articles/intensity-did.png"
+                                alt="Intensity difference in difference regresssion table">
+                            <h5 class="article-sub-title mb-3">Reason 2: Estimating Augmented Money Demand Function</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>
+                                    <span class="fw-bold-600">To know the factors affecting the rise in currency, we
+                                        estimated the following augmented money demand function (using UPI as one of the
+                                        variable) for the Indian economy over the period FY18 to FY26 (Q3), based on the
+                                        quarterly data. The data has been deflated by inflation and long transformation
+                                        has been done when ever required. The estimated money demand model as:</span>
+                                    <div class="row my-4">
+                                        <div class="col-md-6 mx-auto">
+                                            <div class="card article-card">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="my-3 lead fw-bold-600">d = (M/P) = b1 + b2 GDP + b3 Call
+                                                        + b4UPI + ε</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>The estimated results confirms to the theoretical underpinnings of money demand
+                                    function, i. e. <span class="fw-bold-600">demand for money is positively correlated
+                                        to GDP and negatively correlated to interest rate, however coefficient of GDP is
+                                        insignificant as UPI is substituting cash</span></li>
+                                <li>The hypothesis that the rise in UPI transaction value results in a decline in
+                                    currency is confirmed in our results, Hence there is <span
+                                        class="fw-bold-600">inverse relationship between money demand and UPI
+                                        transaction value</span></li>
+                                <li>A lower interest rate is also resulting in higher demand for cash, <span
+                                        class="fw-bold-600">particularly in Rural areas with a penchant for consumption.
+                                        Direct and Indirect tax cuts are also resulting in higher consumption in Urban
+                                        areas</span></li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/variable-expected-sign.png"
+                                                class="card-img-top" alt="variable and expected sign table">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/estimated-results-mdf.png"
+                                                class="card-img-top"
+                                                alt="Estimated Results of Money demand function table">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title mb-3">Currency growth is following Economic Growth
+                                        </h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>RBI continues to follow the minimum reserve system (MRS), which has been
+                                                in place since 1956. Though, RBI doesn’t define a specific fixed
+                                                numerical ‘optimal level’ of currency for the entire economy, as this
+                                                fluctuates with many factors like economic growth, transaction needs,
+                                                and seasonal demand but manages currency issuance to ensure adequate
+                                                liquidity for economic activities</li>
+                                            <li>Generally, the number of pieces (notes) to be printed is generally
+                                                calculated by taking nominal GDP growth projections, plus replacement of
+                                                soiled notes and accounting for seasonal demands.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/cic-nominal-gdp.png"
+                                                alt="Currency in Circulation vs nominal GDP growth in percentage line chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Reason 3: High precious metal prices could also result in
+                                higher CiC</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>Thirdly, with the rise in precious metals prices, there could have been rising
+                                    currency in circulation through recycling of gold/silver from households..
+                                    Households have found recent surge in prices to cash out some holdings, leading to
+                                    the rise of cash in circulation (CiC) in the economy. The cut in GST and income
+                                    taxes has acted as an inventive to boost household consumption</li>
+                                <li class="fw-bold-600">The linkage of gold imports and now silver with monetary policy
+                                    reveal interesting anecdotes…..Gold imports to GDP were rising from FY10 till FY13
+                                    when it reached its peak and currently it is also at the highest level since FY13.
+                                    However, back in FY10-13, RBI 2013 report showed that currency to deposits was also
+                                    rising at a faster pace indicating that increase in high value cash transactions
+                                    perhaps took place for gold purchases. Such definancialisation was undesirable to
+                                    the financial system.. However, this time, people are cashing out gold /silver
+                                    holdings to boost household consumption..This is the power of financialization</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/india-gold-import.png"
+                                                class="card-img-top"
+                                                alt="india gold imports in $ billion column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/india-silver-import.png"
+                                                class="card-img-top"
+                                                alt="india silver imports in $ billion column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Reason 4: Notes of Rs 100/200/500 has increased to
+                                replace Rs 2000 Notes...</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>India’s currency is mostly dominated by notes in value terms, with a significant
+                                    share of 98.99%, while 0.98% in coins and 0.03% in e₹</li>
+                                <li>During the last 3-years (2023 to 2025), the small notes share in Volume (no of
+                                    pieces) has declined by 4.1% to 32.4%, while the notes of Rs 50/100 has increased by
+                                    1.5%...The Rs 200 & Rs 500 notes has increased by 4.0%</li>
+                                <li>With the withdrawal of ₹2000 denomination banknotes of Rs 3.56 lakh crore w.e.f. 19
+                                    May 2023, the share of Rs 2000 notes has reduced to 0.02% from 11.3% share in FY23,
+                                    in terms of volume</li>
+                                <li class="fw-bold-600">However, for the public convenience, RBI has directed banks on
+                                    28 April 2025, to increase Rs 100/200 denomination notes in ATMs and ensure that 96%
+                                    of the ATMs should dispense 100/200 notes by end-March 2026…With this, it is
+                                    expected that RBI will supply more 100/200 notes to the bank branches through
+                                    Currency chests to meet the public demand</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body d-flex align-items-center">
+                                            <img src="images/articles/all-articles/share-bank-note.png"
+                                                class="card-img-top"
+                                                alt="Share % of bank note type in circulation table">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/distribution-currency.png"
+                                                class="card-img-top"
+                                                alt="distribution of Currency % on March 2025 pie chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title">Prevalence of Rs 500 increase</h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>As of Mar’25, in value terms, Rs 500 note has share of 86%</li>
+                                            <li>Our research from currency chest withdrawal data indicates that this
+                                                share (in value terms) may increase by ~4.4% in the current fiscal
+                                                (Apr’25-Jan’26)</li>
+                                            <li>Share of all other big denominations exhibited decline during the same
+                                                period</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/change-in-denomination.png"
+                                                alt="Change in dominations in value terms Apr 25 to Jan 26 column chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">However, UPI is rival of Lower Denomination…. not of Rs
+                                500 note (Yet!)</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>Our results that the share of Rs 50/100/200 notes declined are perfectly
+                                    corroborated with UPI usage data</li>
+                                <li>As per NPCI, based on volume the average ticket size of P2M transaction of less than
+                                    Rs 500 has share of whopping 86% in overall UPI transactions</li>
+                            </ul>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/upi-tranaction.png"
+                                                class="card-img-top"
+                                                alt="UPI transactions by volume in min for Jan'26 sunburst chart diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card article-card h-100">
+                                        <div class="card-body d-flex align-items-center">
+                                            <img src="images/articles/all-articles/p2m-p2p.png" class="card-img-top"
+                                                alt="p2m transactions and p2p transactions diagram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Denomination Matrix</h5>
+                            <div class="row mb-4">
+                                <div class="col-12 d-flex align-items-center">
+                                    <div class="card article-card w-100">
+                                        <div class="card-body">
+                                            <img class="img-fluid w-100"
+                                                src="images/articles/all-articles/denomination-matrix.png"
+                                                alt="Denomination Matrix table">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="article-lead-title mb-1">Afterthought Is Large denomination a curse?</h3>
+                            <h3 class="article-lead-title mb-3">India is perhaps the only country to have cracked this
+                                puzzle</h3>
+                            <div class="row mb-4">
+                                <div class="mx-auto">
+                                    <div class="card article-card">
+                                        <div class="card-body text-center p-4">
+                                            <div class="mb-3 lead">“The massive quantities of cash circulating today,
+                                                and especially large-denomination notes, are a huge public policy
+                                                problem that needs to be urgently discussed, not taken as an immutable
+                                                fact of life”</div>
+                                            <div class="fw-bold-600">- Kenneth Rogoff, The Curse of Cash</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="article-sub-title mb-3">Demand for large-denomination notes is qualitatively
+                                different from that for small-denomination notes</h5>
+                            <ul class="bullet-list-dot mb-4">
+                                <li>Kenneth Rogoff in his 2016 book “The Curse of Cash” said that, “Cash, though, is
+                                    still an important part of the mix, and if one wants to contemplate phasing it out,
+                                    it is critical to have a hard look at both the goals and the alternatives (e.g.,
+                                    prepaid cash cards with strict limits). Maintaining the convenience and privacy of
+                                    paper currency in small transactions are important reasons that any path toward
+                                    phasing out paper currency needs to begin with large- denomination notes and
+                                    possibly leave small- denomination notes circulating indefinitely or until fully
+                                    satisfactory alternatives are in place.”</li>
+                                <li>A staunch believer that cash is a curse, he has the view that, “the vast bulk of the
+                                    world currency supply is in large- denomination notes <span class="fw-bold-600">that
+                                        ordinary citizens seldom see or use,</span> including the United States’ $100
+                                    bill, Japan’s 10,000-yen note, the Euro zone’s 500-euro note, Switzerland’s
+                                    1,000-franc note, and a host of cousins from other countries.” <span
+                                        class="fw-bold-600">And the demand for large-denomination notes is qualitatively
+                                        different from that for small- denomination notes</span></li>
+                                <li>He said that new technologies have now made even small-denomination notes
+                                    increasingly less essential than they once were, a fact that is underscored by the
+                                    progress that some countries (notably Sweden and Denmark) have already made toward
+                                    reducing the use of cash</li>
+                            </ul>
+                            <div class="row mb-4">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="">
+                                        <h5 class="article-sub-title mb-3">The share of large notes expands sharply and
+                                            accounts for more than 80% of the currency supply in most advanced countries
+                                        </h5>
+                                        <ul class="bullet-list-dot">
+                                            <li>Average monthly cash withdrawals at ATMs, is likely to surpass FY24 and
+                                                FY25 levels..Top 6 States are Karnataka, West Bengal, Tamil Nadu,
+                                                Chhattisgarh, Punjab and Jharkhand are showing an increasing trend</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="card article-card">
+                                        <div class="card-body">
+                                            <img src="images/articles/all-articles/proposition-large-note.png"
+                                                class="card-img rounded"
+                                                alt="Preportion of large notes in circulation by country table">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-lg-4 pe-lg-0">
+                        <div class="position-sticky" style="top: 11rem;">
+                            <div class="article-right-side mb-4">
+                                <h3 class="article-lead-title mb-3">Latest Articles</h3>
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-1 g-0">
+                                    <div class="col">
+                                        <a href="#" class="card mb-2 article-right-card-btn h-100">
+                                            <div class="card-body">
+                                                <div class="row g-0">
+                                                    <div class="col-4">
+                                                        <img src="images/articles/latest-articles/article-default.png"
+                                                            class="img-fluid rounded h-100" alt="...">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="ms-3">
+                                                            <h6 class="card-title">LEANING INTO THE WIND:US SUPREME
+                                                                COURT SCRAPS US TARIFF</h6>
+                                                            <p class="card-text">Unscrapping of the tariff structure by
+                                                                the Court(s) can upend uncertainty going forward while
+                                                                jurisdictions need...</p>
+                                                            <p class="card-text">Published on : 21 February 2026</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" class="card mb-2 article-right-card-btn h-100">
+                                            <div class="card-body">
+                                                <div class="row g-0">
+                                                    <div class="col-4">
+                                                        <img src="images/articles/latest-articles/article-default.png"
+                                                            class="img-fluid rounded h-100" alt="...">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="ms-3">
+                                                            <h6 class="card-title">The puzzle of Currency in Circulation
+                                                                (CiC) at all tim...</h6>
+                                                            <p class="card-text">Currency in circulation (CiC) in India
+                                                                has continued to rise, reaching new, record-high levels
+                                                                in late 2025 and ea...</p>
+                                                            <p class="card-text">Published on : 21 February 2026</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-right-side mb-4">
+                                <h3 class="article-lead-title mb-3">Related Articles</h3>
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-1 g-0">
+                                    <div class="col">
+                                        <a href="#" class="card mb-2 article-right-card-btn h-100">
+                                            <div class="card-body">
+                                                <div class="row g-0">
+                                                    <div class="col-4">
+                                                        <img src="images/articles/latest-articles/article-default.png"
+                                                            class="img-fluid rounded h-100" alt="...">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="ms-3">
+                                                            <h6 class="card-title">LEANING INTO THE WIND:US SUPREME
+                                                                COURT SCRAPS US TARIFF</h6>
+                                                            <p class="card-text">Unscrapping of the tariff structure by
+                                                                the Court(s) can upend uncertainty going forward while
+                                                                jurisdictions need...</p>
+                                                            <p class="card-text">Published on : 21 February 2026</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" class="card mb-2 article-right-card-btn h-100">
+                                            <div class="card-body">
+                                                <div class="row g-0">
+                                                    <div class="col-4">
+                                                        <img src="images/articles/latest-articles/article-default.png"
+                                                            class="img-fluid rounded h-100" alt="...">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="ms-3">
+                                                            <h6 class="card-title">The puzzle of Currency in Circulation
+                                                                (CiC) at all tim...</h6>
+                                                            <p class="card-text">Currency in circulation (CiC) in India
+                                                                has continued to rise, reaching new, record-high levels
+                                                                in late 2025 and ea...</p>
+                                                            <p class="card-text">Published on : 21 February 2026</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-right-side mb-4">
+                                <h3 class="article-lead-title mb-3">Related Tags</h3>
+                                <div class="row g-0 mb-4">
+                                    <div class="col-12">
+                                        <ul class="related-tag-list">
+                                            <li><a href="" class="related-tag-btn">#HomeLoan</a></li>
+                                            <li><a href="" class="related-tag-btn">#SBIHomeLoan</a></li>
+                                            <li><a href="" class="related-tag-btn">#LoanEligibility</a></li>
+                                            <li><a href="" class="related-tag-btn">#HomeLoanTips</a></li>
+                                            <li><a href="" class="related-tag-btn">#PropertyBuying</a></li>
+                                            <li><a href="" class="related-tag-btn">#InterestRates</a></li>
+                                            <li><a href="" class="related-tag-btn">#FirstTimeHomeBuyer</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5 mt-0">
+                    <div class="card article-contact-base mb-5">
+                        <div class="card-body p-5">
+                            <h5 class="contact-heading">Contact Details:</h5>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="mb-4 mb-md-5">
+                                        <h6 class="contact-sub-heading">Address</h6>
+                                        <p class="mb-0">Dr. Soumya Kanti Ghosh</p>
+                                        <p class="mb-0">Group Chief Economic Adviser</p>
+                                        <p class="mb-0">State Bank of India, Corporate Centre</p>
+                                        <p class="mb-0">Nariman Point, Mumbai - 400021</p>
+                                    </div>
+                                    <div class="mb-4 mb-md-0">
+                                        <h6 class="contact-sub-heading">Phone</h6>
+                                        <p class="mb-0">022-22742440</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 d-none d-md-flex contact-divider-base">
+                                    <span class="verticle-divider-line"></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <h6 class="contact-sub-heading">Email</h6>
+                                    <p class="mb-0">soumya.ghosh@sbi.co.in</p>
+                                    <p>gcea.erd@sbi.co.in</p>
+                                    <p>
+                                        <a href="#">
+                                            <svg class="svg-icon-24" role="img" viewBox="0 0 24 24">
+                                                <use xlink:href="images/x-twitter.svg"> </use>
+                                            </svg>
+                                            @kantisoumya
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-5 article-banner-base">
+                        <img class="card-img-top" src="images/articles/purple-bg-gradient.png"
+                            alt="Home loan banner section">
+                        <div class="card-img-overlay p-5 d-flex justify-content-center align-items-center">
+                            <div class="d-flex-row w-100">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <div class="article-banner-section">
+                                            <div class="thin-heading animate_animated animate_slideInLeft">Turn Your
+                                                Dream</div>
+                                            <div class="bold-heading animate_animated animate_slideInRight">Home into
+                                                Reality!</div>
+                                            <div class="desc-text animate_animated animate_zoomIn">Affordable EMIs, Low
+                                                Interest Rates, and Quick Approvals.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="w-100 h-100 d-flex justify-content-lg-center align-items-center">
+                                            <a href="javascript:void(0)" class="white-btn">View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </main>
+        <div id="footer" class="du-footer"></div>
+    </article>
+</body>
+
+</html>

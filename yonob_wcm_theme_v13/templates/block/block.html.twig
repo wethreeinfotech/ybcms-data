@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * block.html.twig
+ *
+ * Default theme implementation for a block.
+ * Generic block fallback wrapping block plugin output.
+ *
+ * Available variables:
+ * - plugin_id: The block plugin ID.
+ * - label: The block label (title).
+ * - content: Block content render array.
+ * - attributes: HTML attributes for the wrapper div.
+ * - title_attributes: HTML attributes for the block title.
+ * - content_attributes: HTML attributes for the content div.
+ */
+#}
+
+<div{{ attributes.addClass('block', 'block--' ~ plugin_id|clean_class) }}>
+
+  {# Block title (hidden via Drupal admin if desired) #}
+  {% block title %}
+    {% if label %}
+      <h2{{ title_attributes.addClass('block__title h6 text-uppercase fw-bold mb-3') }}>
+        {{ label }}
+      </h2>
+    {% endif %}
+  {% endblock %}
+
+  {# Block content #}
+  {% block content %}
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  {% endblock %}
+
+</div>

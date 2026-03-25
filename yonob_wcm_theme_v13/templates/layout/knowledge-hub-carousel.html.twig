@@ -1,0 +1,122 @@
+{# ============================================================ Knowledge Hub Carousel ===== #}
+<div id="knowledge-hub-carousel">
+  <style>
+    /* Strictly enforce 2 lines for Titles and Descriptions with Ellipsis */
+    #knowledge-hub-owl-coursel .kh-card .card-title,
+    #knowledge-hub-owl-coursel .kh-card .card-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0;
+    }
+    
+    /* Give desc a fixed height or min-height optionally to prevent layout shifting */
+    #knowledge-hub-owl-coursel .kh-card .card-text {
+      min-height: 48px; /* Assuming ~24px line height */
+    }
+
+    /* Completely hide navigation arrows if they are natively disabled (e.g. page 1) */
+    #knowledge-hub-owl-coursel .owl-prev.disabled,
+    #knowledge-hub-owl-coursel .owl-next.disabled {
+      display: none !important;
+    }
+  </style>
+  <div id="knowledge-hub" class="container-fluid">
+    <div class="container-xl pb-4 headersection">
+      <div class="row g-0">
+        <div class="col-sm-12 col-md-10 col-lg-10 text-start color-black">
+          <div class="main-section-heading01">{{ 'From Our'|t }}</div>
+          <div class="main-section-heading02">{{ 'Knowledge Hub'|t }}</div>
+          <div class="main-section-desc">{{ 'Insights for you.'|t }}</div>
+          <div class="main-section-desc"></div>
+
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+          <div class="w-100 h-100 d-flex justify-content-lg-end justify-content-md-end justify-content-sm-center align-items-end">
+            <a href="{{ url('<front>') }}knowledge-hub" class="header-hypelink">{{ 'View All'|t }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-5">
+      <div class="container-xl">
+        <div class="card_carousel">
+          <div id="knowledge-hub-owl-coursel" class="carousel-container">
+            <section id="demos">
+              <div class="row" id="article-content">
+                <div class="large-12 columns">
+                  <div class="owl-carousel owl-theme">
+                    {% if knowledge_hub_items|length > 0 %}
+                      {% for item in knowledge_hub_items %}
+                        <div class="item">
+                          <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div tabindex="0" class="d-flex flex-column justify-content-between kh-card mb-2 p-4 position-relative cb-card-height">
+                              <img loading="lazy" class="card-img-top wid_100 rounded"
+                                   src="{{ item.field_thumbnail_image.entity.uri.value ? file_url(item.field_thumbnail_image.entity.uri.value) : base_path ~ directory ~ '/images/knowledge-hub/renewed-thrust.png' }}" alt="{{ item.title.value }}">
+                              <div class="card-body px-0 pb-0">
+                                <div class="d-flex mb-3">
+                                  <div class="me-auto py-2"><button type="button" class="btn btn-primary btn-sm category-btn">{{ item.field_knowledge_hub_category.entity.name.value|default('Category') }}</button></div>
+                                </div>
+                                <h5 class="card-title">{{ item.title.value }}</h5>
+                                <p class="article-date mb-0 py-2">{{ 'Published on :'|t }} {{ item.field_published_on.value|date('d F Y') }}</p>
+                                <div class="kh-divider my-3"></div>
+                                <p class="card-text">{{ item.field_short_description.value|striptags }}</p>
+                                <a href="{{ path('entity.node.canonical', {'node': item.id()}) }}" class="card-link">{{ 'Read More'|t }}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    {% else %}
+                      {# Fallback KH Cards #}
+                      <div class="item">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          <div tabindex="0" class="d-flex flex-column justify-content-between kh-card mb-2 p-4 position-relative cb-card-height">
+                            <img loading="lazy" class="card-img-top wid_100 rounded"
+                                 src="{{ base_path ~ directory }}/images/knowledge-hub/renewed-thrust.png" alt="">
+                            <div class="card-body px-0 pb-0">
+                              <div class="d-flex mb-3">
+                                <div class="me-auto py-2"><button type="button" class="btn btn-primary btn-sm category-btn">{{ 'SBI Research Desk'|t }}</button></div>
+                              </div>
+                              <h5 class="card-title">{{ 'Q3 FY26 GDP could be more than 8.0%...'|t }}</h5>
+                              <p class="article-date mb-0 py-2">{{ 'Published on : 24 February 2026'|t }}</p>
+                              <div class="kh-divider my-3"></div>
+                              <p class="card-text">{{ 'Nowcasted Q3FY26 real GDP growth at 8.1%.. However, given significant methodological...'|t }}</p>
+                              <a href="javascript:void(0)" class="card-link">{{ 'Read More'|t }}</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          <div tabindex="0" class="d-flex flex-column justify-content-between kh-card mb-2 p-4 position-relative cb-card-height">
+                            <img loading="lazy" class="card-img-top wid_100 rounded"
+                                 src="{{ base_path ~ directory }}/images/knowledge-hub/india-uk-fta.png" alt="{{ 'India UK FTA'|t }}">
+                            <div class="card-body px-0 pb-0">
+                              <div class="d-flex mb-3">
+                                <div class="me-auto py-2"><button type="button" class="btn btn-primary btn-sm category-btn">{{ 'SBI Research Desk'|t }}</button></div>
+                              </div>
+                              <h5 class="card-title">{{ 'LEANING INTO THE WIND: US SUPREME COURT SCRAPS US...'|t }}</h5>
+                              <p class="article-date mb-0 py-2">{{ 'Published on : 21 February 2026'|t }}</p>
+                              <div class="kh-divider my-3"></div>
+                              <p class="card-text">{{ 'Unscrapping of the tariff structure by the Court(s) can upend uncertainty going forward...'|t }}</p>
+                              <a href="javascript:void(0)" class="card-link">{{ 'Read More'|t }}</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>{# /.owl-carousel #}
+                </div>
+              </div>
+            </section>
+          </div>{# /#knowledge-hub-owl-coursel #}
+        </div>
+      </div>
+    </div>
+  </div>{# /#knowledge-hub #}
+</div>{# /#knowledge-hub-carousel #}

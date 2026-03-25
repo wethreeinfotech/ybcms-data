@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * menu--main.html.twig
+ *
+ * Renders the main navigation as a Bootstrap 5 navbar-nav.
+ * Supports 3 levels: top-level nav-items → dropdown → dropdown-submenu.
+ *
+ * Available variables:
+ *  - menu_name  : Machine name of the menu (e.g. 'main').
+ *  - items      : Nested array of menu items, each containing:
+ *                 - title, url, in_active_trail, below
+ */
+#}
+
+{% import _self as menus %}
+
+<ul class="navbar-nav align-items-center{{ menu_name == 'main' ? ' main-nav' : '' }}">
+  {{ menus.menu_links(items, attributes, 0) }}
+</ul>
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+
+  {% for item in items %}
+    {% set has_children = item.below is not empty %}
+
+    <li class="nav-item{{ has_children ? ' dropdown' : '' }}{{ item.in_active_trail ? ' active' : '' }}">
+
+      {% if has_children %}
+        {# Parent — dropdown toggle #}
+        <a class="nav-link dropdown-toggle{{ item.in_active_trail ? ' active' : '' }}"
+           href="{{ item.url.toString() }}"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false"
+           {% if item.in_active_trail %}aria-current="page"{% endif %}>
+          {{ item.title }}
+        </a>
+
+        <ul class="dropdown-menu{{ menu_level > 0 ? ' dropdown-submenu' : '' }}">
+          {% for child in item.below %}
+            {% set child_has_children = child.below is not empty %}
+            <li class="{{ child_has_children ? 'dropdown-submenu' : '' }}">
+              <a class="dropdown-item{{ child.in_active_trail ? ' active' : '' }}{{ child_has_children ? ' dropdown-toggle' : '' }}"
+                 href="{{ child.url.toString() }}"
+                 {% if child_has_children %}data-bs-toggle="dropdown" aria-expanded="false"{% endif %}
+                 {% if child.in_active_trail %}aria-current="page"{% endif %}>
+                {{ child.title }}
+              </a>
+              {% if child_has_children %}
+                <ul class="dropdown-menu">
+                  {% for grandchild in child.below %}
+                    <li>
+                      <a class="dropdown-item{{ grandchild.in_active_trail ? ' active' : '' }}"
+                         href="{{ grandchild.url.toString() }}"
+                         {% if grandchild.in_active_trail %}aria-current="page"{% endif %}>
+                        {{ grandchild.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+      {% else %}
+        {# Leaf item — no children #}
+        <a class="nav-link{{ item.in_active_trail ? ' active' : '' }}"
+           href="{{ item.url.toString() }}"
+           {% if item.in_active_trail %}aria-current="page"{% endif %}>
+          {{ item.title }}
+        </a>
+      {% endif %}
+
+    </li>
+  {% endfor %}
+{% endmacro %}
