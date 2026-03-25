@@ -3194,6 +3194,11 @@ h3.small-title {
     /* margin-top: 138px; */
 }
 
+.l3-banner-blue-bg.knowledge-hub-banner-bg {
+    background: url('../images/knowledge-hub/knowledge-hub-banner.jpg') no-repeat center center;
+    background-size: cover;
+}
+
 .search-box-base {
     position: relative;
 }
